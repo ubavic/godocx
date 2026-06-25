@@ -4,11 +4,13 @@ We welcome bug reports, feature requests, and pull requests.
 Please follow these guidelines to keep things organized.
 
 ## Reporting Issues
+
 - Search existing issues before opening a new one.
 - Provide a clear description of the problem.
 - Include Go version, OS, and relevant code snippets.
 
 ## Requesting Features
+
 - Open a GitHub issue labeled `feature`.
 - Describe the use case and, if possible, share a sample DOCX.
 

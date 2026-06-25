@@ -4,7 +4,7 @@ import (
 	"encoding/xml"
 	"testing"
 
-	"github.com/gomutex/godocx/dml/dmlst"
+	"github.com/ubavic/godocx/dml/dmlst"
 )
 
 func TestMarshalPoistionH(t *testing.T) {

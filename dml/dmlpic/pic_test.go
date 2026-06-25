@@ -4,12 +4,13 @@ import (
 	"encoding/xml"
 	"strings"
 	"testing"
-//	"fmt"
 
-	"github.com/gomutex/godocx/dml/dmlct"
-	"github.com/gomutex/godocx/dml/dmlprops"
-	"github.com/gomutex/godocx/dml/dmlst"
-	"github.com/gomutex/godocx/dml/shapes"
+	//	"fmt"
+
+	"github.com/ubavic/godocx/dml/dmlct"
+	"github.com/ubavic/godocx/dml/dmlprops"
+	"github.com/ubavic/godocx/dml/dmlst"
+	"github.com/ubavic/godocx/dml/shapes"
 )
 
 func TestPicMarshalXML(t *testing.T) {
@@ -107,14 +108,17 @@ func TestPicUnmarshalXML(t *testing.T) {
 	checkNotNil("BlipFill", pic.BlipFill)
 	checkNotNil("PicShapeProp", pic.PicShapeProp)
 }
+
 // Source - https://stackoverflow.com/a/28818489
 // Posted by icza, modified by community. See post 'Timeline' for change history
 // Retrieved 2025-12-18, License - CC BY-SA 3.0
 
 func newBool(bb bool) *bool {
-    b := true
-	if !bb {b= false}
-    return &b
+	b := true
+	if !bb {
+		b = false
+	}
+	return &b
 }
 
 func newUint(num uint64) *uint64 {
@@ -149,8 +153,8 @@ func TestPicV2MarshalXML(t *testing.T) {
 		PicShapeProp: PicShapeProp{
 			TransformGroup: &TransformGroup{
 				Rotation: newUint(90000),
-				FlipH: newBool(true),
-				FlipV: newBool(false),
+				FlipH:    newBool(true),
+				FlipV:    newBool(false),
 				Offset: &Offset{
 					X: 0,
 					Y: 0,
@@ -219,7 +223,11 @@ func TestPicV2UnmarshalXML(t *testing.T) {
 	checkNotNil("BlipFill", pic.BlipFill)
 	checkNotNil("PicShapeProp", pic.PicShapeProp)
 
-	tfg :=pic.PicShapeProp.TransformGroup
+	tfg := pic.PicShapeProp.TransformGroup
 
-	if tfg.Rotation != nil {if *tfg.Rotation != uint64(180000) {t.Errorf(" invalid Rotation: %d", *tfg.Rotation)}}
+	if tfg.Rotation != nil {
+		if *tfg.Rotation != uint64(180000) {
+			t.Errorf(" invalid Rotation: %d", *tfg.Rotation)
+		}
+	}
 }

@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/gomutex/godocx/common/constants"
-	"github.com/gomutex/godocx/common/units"
-	"github.com/gomutex/godocx/dml/dmlct"
-	"github.com/gomutex/godocx/dml/geom"
-	"github.com/gomutex/godocx/dml/shapes"
+	"github.com/ubavic/godocx/common/constants"
+	"github.com/ubavic/godocx/common/units"
+	"github.com/ubavic/godocx/dml/dmlct"
+	"github.com/ubavic/godocx/dml/geom"
+	"github.com/ubavic/godocx/dml/shapes"
 )
 
 type Pic struct {
@@ -85,11 +85,11 @@ func (p Pic) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 }
 
 type TransformGroup struct {
-	Rotation *uint64 `xml:"rot,attr,omitempty"`
-	FlipH *bool `xml:"flipH, attr, omitempty"`
-	FlipV *bool `xml:"flipV, attr, omitempty"`
-	Extent *dmlct.PSize2D `xml:"ext,omitempty"`
-	Offset *Offset        `xml:"off,omitempty"`
+	Rotation *uint64        `xml:"rot,attr,omitempty"`
+	FlipH    *bool          `xml:"flipH, attr, omitempty"`
+	FlipV    *bool          `xml:"flipV, attr, omitempty"`
+	Extent   *dmlct.PSize2D `xml:"ext,omitempty"`
+	Offset   *Offset        `xml:"off,omitempty"`
 }
 
 type TFGroupOption func(*TransformGroup)
@@ -117,13 +117,13 @@ func (t TransformGroup) MarshalXML(e *xml.Encoder, start xml.StartElement) error
 	start.Name.Local = "a:xfrm"
 	start.Attr = []xml.Attr{}
 	if t.Rotation != nil {
-		start.Attr = append(start.Attr, xml.Attr{Name: xml.Name{Local: "rot"}, Value:  strconv.FormatUint(*t.Rotation, 10)})
+		start.Attr = append(start.Attr, xml.Attr{Name: xml.Name{Local: "rot"}, Value: strconv.FormatUint(*t.Rotation, 10)})
 	}
 	if t.FlipH != nil {
-		start.Attr = append(start.Attr, xml.Attr{Name: xml.Name{Local: "flipH"}, Value:  strconv.FormatBool(*t.FlipH)})
+		start.Attr = append(start.Attr, xml.Attr{Name: xml.Name{Local: "flipH"}, Value: strconv.FormatBool(*t.FlipH)})
 	}
 	if t.FlipV != nil {
-		start.Attr = append(start.Attr, xml.Attr{Name: xml.Name{Local: "flipV"}, Value:  strconv.FormatBool(*t.FlipV)})
+		start.Attr = append(start.Attr, xml.Attr{Name: xml.Name{Local: "flipV"}, Value: strconv.FormatBool(*t.FlipV)})
 	}
 
 	err := e.EncodeToken(start)

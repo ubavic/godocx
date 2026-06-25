@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"testing"
 
-	godocx "github.com/gomutex/godocx"
-	docxpkg "github.com/gomutex/godocx/docx"
 	"github.com/stretchr/testify/require"
+	godocx "github.com/ubavic/godocx"
+	docxpkg "github.com/ubavic/godocx/docx"
 )
 
 // Ensures that writing the same document multiple times yields identical bytes.
