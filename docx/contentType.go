@@ -26,6 +26,12 @@ type Override struct {
 }
 
 func (c *ContentTypes) AddExtension(extension, contentType string) error {
+	for _, d := range c.Default {
+		if d.Extension == extension {
+			return nil
+		}
+	}
+
 	c.Default = append(c.Default, Default{
 		Extension:   extension,
 		ContentType: contentType,
@@ -35,6 +41,12 @@ func (c *ContentTypes) AddExtension(extension, contentType string) error {
 }
 
 func (c *ContentTypes) AddOverride(partName, contentType string) error {
+	for _, o := range c.Override {
+		if o.PartName == partName {
+			return nil
+		}
+	}
+
 	c.Override = append(c.Override, Override{
 		PartName:    partName,
 		ContentType: contentType,
