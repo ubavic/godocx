@@ -19,20 +19,20 @@ func TestLatentStyle_MarshalXML(t *testing.T) {
 		{
 			name: "All attributes set",
 			latent: LatentStyle{
-				DefLockedState:    internal.ToPtr(stypes.OnOffOn),
-				DefUIPriority:     internal.ToPtr(99),
-				DefSemiHidden:     internal.ToPtr(stypes.OnOffOn),
-				DefUnhideWhenUsed: internal.ToPtr(stypes.OnOffOn),
-				DefQFormat:        internal.ToPtr(stypes.OnOffOn),
-				Count:             internal.ToPtr(3),
+				DefLockedState:    new(stypes.OnOffOn),
+				DefUIPriority:     new(99),
+				DefSemiHidden:     new(stypes.OnOffOn),
+				DefUnhideWhenUsed: new(stypes.OnOffOn),
+				DefQFormat:        new(stypes.OnOffOn),
+				Count:             new(3),
 				LsdExceptions: []LsdException{
 					{
 						Name:           "Heading1",
-						Locked:         internal.ToPtr(stypes.OnOffOn),
-						UIPriority:     internal.ToPtr(99),
-						SemiHidden:     internal.ToPtr(stypes.OnOffOn),
-						UnhideWhenUsed: internal.ToPtr(stypes.OnOffOn),
-						QFormat:        internal.ToPtr(stypes.OnOffOn),
+						Locked:         new(stypes.OnOffOn),
+						UIPriority:     new(99),
+						SemiHidden:     new(stypes.OnOffOn),
+						UnhideWhenUsed: new(stypes.OnOffOn),
+						QFormat:        new(stypes.OnOffOn),
 					},
 					{
 						Name: "Heading2",
@@ -83,20 +83,20 @@ func TestLatentStyle_UnmarshalXML(t *testing.T) {
 				<w:lsdException w:name="Heading2"></w:lsdException>
 			</w:latentStyles>`,
 			expected: LatentStyle{
-				DefLockedState:    internal.ToPtr(stypes.OnOffOn),
-				DefUIPriority:     internal.ToPtr(99),
-				DefSemiHidden:     internal.ToPtr(stypes.OnOffOn),
-				DefUnhideWhenUsed: internal.ToPtr(stypes.OnOffOn),
-				DefQFormat:        internal.ToPtr(stypes.OnOffOn),
-				Count:             internal.ToPtr(3),
+				DefLockedState:    new(stypes.OnOffOn),
+				DefUIPriority:     new(99),
+				DefSemiHidden:     new(stypes.OnOffOn),
+				DefUnhideWhenUsed: new(stypes.OnOffOn),
+				DefQFormat:        new(stypes.OnOffOn),
+				Count:             new(3),
 				LsdExceptions: []LsdException{
 					{
 						Name:           "Heading1",
-						Locked:         internal.ToPtr(stypes.OnOffOn),
-						UIPriority:     internal.ToPtr(99),
-						SemiHidden:     internal.ToPtr(stypes.OnOffOn),
-						UnhideWhenUsed: internal.ToPtr(stypes.OnOffOn),
-						QFormat:        internal.ToPtr(stypes.OnOffOn),
+						Locked:         new(stypes.OnOffOn),
+						UIPriority:     new(99),
+						SemiHidden:     new(stypes.OnOffOn),
+						UnhideWhenUsed: new(stypes.OnOffOn),
+						QFormat:        new(stypes.OnOffOn),
 					},
 					{
 						Name: "Heading2",

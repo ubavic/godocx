@@ -18,7 +18,7 @@ func TestOnOff_MarshalXML(t *testing.T) {
 	}{
 		{
 			name:     "With value",
-			input:    OnOff{Val: internal.ToPtr(stypes.OnOffFalse)},
+			input:    OnOff{Val: new(stypes.OnOffFalse)},
 			expected: `<w:rStyle w:val="false"></w:rStyle>`,
 		},
 		{
@@ -58,7 +58,7 @@ func TestOnOff_UnmarshalXML(t *testing.T) {
 		{
 			name:     "With value",
 			inputXML: `<w:rStyle w:val="true"></w:rStyle>`,
-			expected: OnOff{Val: internal.ToPtr(stypes.OnOffTrue)},
+			expected: OnOff{Val: new(stypes.OnOffTrue)},
 		},
 		{
 			name:     "Empty value",

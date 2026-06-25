@@ -6,7 +6,6 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ubavic/godocx/internal"
 	"github.com/ubavic/godocx/wml/stypes"
 )
 
@@ -18,17 +17,17 @@ func TestTableWidth_MarshalXML(t *testing.T) {
 	}{
 		{
 			name:     "Test with Width only",
-			input:    TableWidth{Width: internal.ToPtr(500)},
+			input:    TableWidth{Width: new(500)},
 			expected: `<w:tblW w:w="500"></w:tblW>`,
 		},
 		{
 			name:     "Test with Type only",
-			input:    TableWidth{WidthType: internal.ToPtr(stypes.TableWidthDxa)},
+			input:    TableWidth{WidthType: new(stypes.TableWidthDxa)},
 			expected: `<w:tblW w:type="dxa"></w:tblW>`,
 		},
 		{
 			name:     "Test with Width and Type",
-			input:    TableWidth{Width: internal.ToPtr(1000), WidthType: internal.ToPtr(stypes.TableWidthAuto)},
+			input:    TableWidth{Width: new(1000), WidthType: new(stypes.TableWidthAuto)},
 			expected: `<w:tblW w:w="1000" w:type="auto"></w:tblW>`,
 		},
 		{
@@ -70,17 +69,17 @@ func TestTableWidth_UnmarshalXML(t *testing.T) {
 		{
 			name:     "Test with Width attribute",
 			inputXML: `<w:tblW w:w="750"></w:tblW>`,
-			expected: TableWidth{Width: internal.ToPtr(750)},
+			expected: TableWidth{Width: new(750)},
 		},
 		{
 			name:     "Test with Type attribute",
 			inputXML: `<w:tblW w:type="dxa"></w:tblW>`,
-			expected: TableWidth{WidthType: internal.ToPtr(stypes.TableWidthDxa)},
+			expected: TableWidth{WidthType: new(stypes.TableWidthDxa)},
 		},
 		{
 			name:     "Test with Width and Type attributes",
 			inputXML: `<w:tblW w:w="500" w:type="pct"></w:tblW>`,
-			expected: TableWidth{Width: internal.ToPtr(500), WidthType: internal.ToPtr(stypes.TableWidthPct)},
+			expected: TableWidth{Width: new(500), WidthType: new(stypes.TableWidthPct)},
 		},
 	}
 

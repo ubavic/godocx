@@ -47,16 +47,16 @@ func TestRowProperty_MarshalXML(t *testing.T) {
 				WidthBefore: NewTableWidth(500, "pct"),
 				WidthAfter:  NewTableWidth(300, "dxa"),
 				CantSplit: &OnOff{
-					Val: internal.ToPtr(stypes.OnOffTrue),
+					Val: new(stypes.OnOffTrue),
 				},
 				Height: NewTableRowHeight(500, "atLeast"),
 				Header: &OnOff{
-					Val: internal.ToPtr(stypes.OnOffTrue),
+					Val: new(stypes.OnOffTrue),
 				},
 				CellSpacing: NewTableWidth(100, "dxa"),
 				JC:          NewGenSingleStrVal(stypes.JustificationCenter),
 				Hidden: &OnOff{
-					Val: internal.ToPtr(stypes.OnOffFalse),
+					Val: new(stypes.OnOffFalse),
 				},
 			},
 			expectFail:  false,
@@ -151,16 +151,16 @@ func TestRowProperty_UnmarshalXML(t *testing.T) {
 				WidthBefore: NewTableWidth(500, "pct"),
 				WidthAfter:  NewTableWidth(300, "dxa"),
 				CantSplit: &OnOff{
-					Val: internal.ToPtr(stypes.OnOffTrue),
+					Val: new(stypes.OnOffTrue),
 				},
 				Height: NewTableRowHeight(500, "atLeast"),
 				Header: &OnOff{
-					Val: internal.ToPtr(stypes.OnOffTrue),
+					Val: new(stypes.OnOffTrue),
 				},
 				CellSpacing: NewTableWidth(100, "dxa"),
 				JC:          NewGenSingleStrVal(stypes.JustificationCenter),
 				Hidden: &OnOff{
-					Val: internal.ToPtr(stypes.OnOffFalse),
+					Val: new(stypes.OnOffFalse),
 				},
 			},
 			expectFail: false,

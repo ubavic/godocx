@@ -6,7 +6,6 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ubavic/godocx/internal"
 	"github.com/ubavic/godocx/wml/stypes"
 )
 
@@ -18,17 +17,17 @@ func TestTableRowHeight_MarshalXML(t *testing.T) {
 	}{
 		{
 			name:     "Test with Val only",
-			input:    TableRowHeight{Val: internal.ToPtr(500)},
+			input:    TableRowHeight{Val: new(500)},
 			expected: `<w:val w:val="500"></w:val>`,
 		},
 		{
 			name:     "Test with HRule only",
-			input:    TableRowHeight{HRule: internal.ToPtr(stypes.HeightRuleAtLeast)},
+			input:    TableRowHeight{HRule: new(stypes.HeightRuleAtLeast)},
 			expected: `<w:val w:hRule="atLeast"></w:val>`,
 		},
 		{
 			name:     "Test with Val and HRule",
-			input:    TableRowHeight{Val: internal.ToPtr(1000), HRule: internal.ToPtr(stypes.HeightRuleExact)},
+			input:    TableRowHeight{Val: new(1000), HRule: new(stypes.HeightRuleExact)},
 			expected: `<w:val w:val="1000" w:hRule="exact"></w:val>`,
 		},
 		{
@@ -70,17 +69,17 @@ func TestTableRowHeight_UnmarshalXML(t *testing.T) {
 		{
 			name:     "Test with Val attribute",
 			inputXML: `<w:val w:val="750"></w:val>`,
-			expected: TableRowHeight{Val: internal.ToPtr(750)},
+			expected: TableRowHeight{Val: new(750)},
 		},
 		{
 			name:     "Test with HRule attribute",
 			inputXML: `<w:val w:hRule="auto"></w:val>`,
-			expected: TableRowHeight{HRule: internal.ToPtr(stypes.HeightRuleAuto)},
+			expected: TableRowHeight{HRule: new(stypes.HeightRuleAuto)},
 		},
 		{
 			name:     "Test with Val and HRule attributes",
 			inputXML: `<w:val w:val="500" w:hRule="atLeast"></w:val>`,
-			expected: TableRowHeight{Val: internal.ToPtr(500), HRule: internal.ToPtr(stypes.HeightRuleAtLeast)},
+			expected: TableRowHeight{Val: new(500), HRule: new(stypes.HeightRuleAtLeast)},
 		},
 	}
 

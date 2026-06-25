@@ -4,8 +4,6 @@ import (
 	"encoding/xml"
 	"strings"
 	"testing"
-
-	"github.com/ubavic/godocx/internal"
 )
 
 func TestParaBorder_MarshalXML(t *testing.T) {
@@ -17,20 +15,20 @@ func TestParaBorder_MarshalXML(t *testing.T) {
 		{
 			name: "All fields set",
 			input: ParaBorder{
-				Top:     &Border{Val: "single", Color: internal.ToPtr("auto")},
-				Left:    &Border{Val: "dashed", Color: internal.ToPtr("FF0000")},
-				Right:   &Border{Val: "double", Color: internal.ToPtr("00FF00")},
-				Bottom:  &Border{Val: "dotted", Color: internal.ToPtr("0000FF")},
-				Between: &Border{Val: "wave", Color: internal.ToPtr("123456")},
-				Bar:     &Border{Val: "thick", Color: internal.ToPtr("654321")},
+				Top:     &Border{Val: "single", Color: new("auto")},
+				Left:    &Border{Val: "dashed", Color: new("FF0000")},
+				Right:   &Border{Val: "double", Color: new("00FF00")},
+				Bottom:  &Border{Val: "dotted", Color: new("0000FF")},
+				Between: &Border{Val: "wave", Color: new("123456")},
+				Bar:     &Border{Val: "thick", Color: new("654321")},
 			},
 			expected: `<w:pBdr><w:top w:val="single" w:color="auto"></w:top><w:left w:val="dashed" w:color="FF0000"></w:left><w:right w:val="double" w:color="00FF00"></w:right><w:bottom w:val="dotted" w:color="0000FF"></w:bottom><w:between w:val="wave" w:color="123456"></w:between><w:bar w:val="thick" w:color="654321"></w:bar></w:pBdr>`,
 		},
 		{
 			name: "Some fields set",
 			input: ParaBorder{
-				Top:    &Border{Val: "single", Color: internal.ToPtr("auto")},
-				Bottom: &Border{Val: "dotted", Color: internal.ToPtr("0000FF")},
+				Top:    &Border{Val: "single", Color: new("auto")},
+				Bottom: &Border{Val: "dotted", Color: new("0000FF")},
 			},
 			expected: `<w:pBdr><w:top w:val="single" w:color="auto"></w:top><w:bottom w:val="dotted" w:color="0000FF"></w:bottom></w:pBdr>`,
 		},
@@ -78,12 +76,12 @@ func TestParaBorder_UnmarshalXML(t *testing.T) {
 						<w:bar w:val="thick" w:color="654321"></w:bar>
 					  </w:pBdr>`,
 			expected: ParaBorder{
-				Top:     &Border{Val: "single", Color: internal.ToPtr("auto")},
-				Left:    &Border{Val: "dashed", Color: internal.ToPtr("FF0000")},
-				Right:   &Border{Val: "double", Color: internal.ToPtr("00FF00")},
-				Bottom:  &Border{Val: "dotted", Color: internal.ToPtr("0000FF")},
-				Between: &Border{Val: "wave", Color: internal.ToPtr("123456")},
-				Bar:     &Border{Val: "thick", Color: internal.ToPtr("654321")},
+				Top:     &Border{Val: "single", Color: new("auto")},
+				Left:    &Border{Val: "dashed", Color: new("FF0000")},
+				Right:   &Border{Val: "double", Color: new("00FF00")},
+				Bottom:  &Border{Val: "dotted", Color: new("0000FF")},
+				Between: &Border{Val: "wave", Color: new("123456")},
+				Bar:     &Border{Val: "thick", Color: new("654321")},
 			},
 		},
 		{
@@ -93,8 +91,8 @@ func TestParaBorder_UnmarshalXML(t *testing.T) {
 						<w:bottom w:val="dotted" w:color="0000FF"></w:bottom>
 					  </w:pBdr>`,
 			expected: ParaBorder{
-				Top:    &Border{Val: "single", Color: internal.ToPtr("auto")},
-				Bottom: &Border{Val: "dotted", Color: internal.ToPtr("0000FF")},
+				Top:    &Border{Val: "single", Color: new("auto")},
+				Bottom: &Border{Val: "dotted", Color: new("0000FF")},
 			},
 		},
 		{

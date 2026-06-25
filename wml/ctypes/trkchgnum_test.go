@@ -3,8 +3,6 @@ package ctypes
 import (
 	"encoding/xml"
 	"testing"
-
-	"github.com/ubavic/godocx/internal"
 )
 
 func TestTrackChangeNum_MarshalXML(t *testing.T) {
@@ -18,8 +16,8 @@ func TestTrackChangeNum_MarshalXML(t *testing.T) {
 			input: TrackChangeNum{
 				ID:       123,
 				Author:   "John Doe",
-				Date:     internal.ToPtr("2023-06-18T12:34:56Z"),
-				Original: internal.ToPtr("42"),
+				Date:     new("2023-06-18T12:34:56Z"),
+				Original: new("42"),
 			},
 			expected: `<TrackChangeNum w:id="123" w:author="John Doe" w:date="2023-06-18T12:34:56Z" w:original="42"></TrackChangeNum>`,
 		},
@@ -36,7 +34,7 @@ func TestTrackChangeNum_MarshalXML(t *testing.T) {
 			input: TrackChangeNum{
 				ID:     125,
 				Author: "Alice",
-				Date:   internal.ToPtr("2024-06-18T12:34:56Z"),
+				Date:   new("2024-06-18T12:34:56Z"),
 			},
 			expected: `<TrackChangeNum w:id="125" w:author="Alice" w:date="2024-06-18T12:34:56Z"></TrackChangeNum>`,
 		},
@@ -45,7 +43,7 @@ func TestTrackChangeNum_MarshalXML(t *testing.T) {
 			input: TrackChangeNum{
 				ID:       126,
 				Author:   "Bob",
-				Original: internal.ToPtr("99"),
+				Original: new("99"),
 			},
 			expected: `<TrackChangeNum w:id="126" w:author="Bob" w:original="99"></TrackChangeNum>`,
 		},
@@ -77,8 +75,8 @@ func TestTrackChangeNum_UnmarshalXML(t *testing.T) {
 			expected: TrackChangeNum{
 				ID:       123,
 				Author:   "John Doe",
-				Date:     internal.ToPtr("2023-06-18T12:34:56Z"),
-				Original: internal.ToPtr("42"),
+				Date:     new("2023-06-18T12:34:56Z"),
+				Original: new("42"),
 			},
 		},
 		{
@@ -95,7 +93,7 @@ func TestTrackChangeNum_UnmarshalXML(t *testing.T) {
 			expected: TrackChangeNum{
 				ID:     125,
 				Author: "Alice",
-				Date:   internal.ToPtr("2024-06-18T12:34:56Z"),
+				Date:   new("2024-06-18T12:34:56Z"),
 			},
 		},
 		{
@@ -104,7 +102,7 @@ func TestTrackChangeNum_UnmarshalXML(t *testing.T) {
 			expected: TrackChangeNum{
 				ID:       126,
 				Author:   "Bob",
-				Original: internal.ToPtr("99"),
+				Original: new("99"),
 			},
 		},
 	}

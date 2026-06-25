@@ -10,7 +10,7 @@ import (
 )
 
 func TestTableLayout_MarshalXML(t *testing.T) {
-	layout := &TableLayout{LayoutType: internal.ToPtr(stypes.TableLayoutFixed)}
+	layout := &TableLayout{LayoutType: new(stypes.TableLayoutFixed)}
 
 	expected := `<w:tblLayout w:type="fixed"></w:tblLayout>`
 
@@ -37,7 +37,7 @@ func TestLayout_UnmarshalXML(t *testing.T) {
 		{
 			name:     "Test with Overlap Value `never`",
 			inputXML: `<w:tblLayout w:type="fixed"></w:tblLayout>`,
-			expected: TableLayout{LayoutType: internal.ToPtr(stypes.TableLayoutFixed)},
+			expected: TableLayout{LayoutType: new(stypes.TableLayoutFixed)},
 		},
 	}
 

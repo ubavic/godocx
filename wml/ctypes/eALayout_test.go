@@ -5,7 +5,6 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ubavic/godocx/internal"
 	"github.com/ubavic/godocx/wml/stypes"
 )
 
@@ -18,46 +17,46 @@ func TestEALayout_MarshalXML(t *testing.T) {
 		{
 			name: "All attributes set",
 			layout: EALayout{
-				ID:           internal.ToPtr(1),
-				Combine:      internal.ToPtr(stypes.OnOffOn),
-				CombineBrkts: internal.ToPtr(stypes.CombineBracketsRound),
-				Vert:         internal.ToPtr(stypes.OnOffOff),
-				VertCompress: internal.ToPtr(stypes.OnOffOn),
+				ID:           new(1),
+				Combine:      new(stypes.OnOffOn),
+				CombineBrkts: new(stypes.CombineBracketsRound),
+				Vert:         new(stypes.OnOffOff),
+				VertCompress: new(stypes.OnOffOn),
 			},
 			expected: `<w:eastAsianLayout w:id="1" w:combine="on" w:combineBrackets="round" w:vert="off" w:vertCompress="on"></w:eastAsianLayout>`,
 		},
 		{
 			name: "Only ID set",
 			layout: EALayout{
-				ID: internal.ToPtr(2),
+				ID: new(2),
 			},
 			expected: `<w:eastAsianLayout w:id="2"></w:eastAsianLayout>`,
 		},
 		{
 			name: "Only Combine set",
 			layout: EALayout{
-				Combine: internal.ToPtr(stypes.OnOffOn),
+				Combine: new(stypes.OnOffOn),
 			},
 			expected: `<w:eastAsianLayout w:combine="on"></w:eastAsianLayout>`,
 		},
 		{
 			name: "Only CombineBrkts set",
 			layout: EALayout{
-				CombineBrkts: internal.ToPtr(stypes.CombineBracketsSquare),
+				CombineBrkts: new(stypes.CombineBracketsSquare),
 			},
 			expected: `<w:eastAsianLayout w:combineBrackets="square"></w:eastAsianLayout>`,
 		},
 		{
 			name: "Only Vert set",
 			layout: EALayout{
-				Vert: internal.ToPtr(stypes.OnOffOff),
+				Vert: new(stypes.OnOffOff),
 			},
 			expected: `<w:eastAsianLayout w:vert="off"></w:eastAsianLayout>`,
 		},
 		{
 			name: "Only VertCompress set",
 			layout: EALayout{
-				VertCompress: internal.ToPtr(stypes.OnOffOn),
+				VertCompress: new(stypes.OnOffOn),
 			},
 			expected: `<w:eastAsianLayout w:vertCompress="on"></w:eastAsianLayout>`,
 		},
@@ -95,46 +94,46 @@ func TestEALayout_UnmarshalXML(t *testing.T) {
 			name:     "All attributes set",
 			inputXML: `<w:eastAsianLayout w:id="1" w:combine="on" w:combineBrackets="round" w:vert="off" w:vertCompress="on"></w:eastAsianLayout>`,
 			expected: EALayout{
-				ID:           internal.ToPtr(1),
-				Combine:      internal.ToPtr(stypes.OnOffOn),
-				CombineBrkts: internal.ToPtr(stypes.CombineBracketsRound),
-				Vert:         internal.ToPtr(stypes.OnOffOff),
-				VertCompress: internal.ToPtr(stypes.OnOffOn),
+				ID:           new(1),
+				Combine:      new(stypes.OnOffOn),
+				CombineBrkts: new(stypes.CombineBracketsRound),
+				Vert:         new(stypes.OnOffOff),
+				VertCompress: new(stypes.OnOffOn),
 			},
 		},
 		{
 			name:     "Only ID set",
 			inputXML: `<w:eastAsianLayout w:id="2"></w:eastAsianLayout>`,
 			expected: EALayout{
-				ID: internal.ToPtr(2),
+				ID: new(2),
 			},
 		},
 		{
 			name:     "Only Combine set",
 			inputXML: `<w:eastAsianLayout w:combine="on"></w:eastAsianLayout>`,
 			expected: EALayout{
-				Combine: internal.ToPtr(stypes.OnOffOn),
+				Combine: new(stypes.OnOffOn),
 			},
 		},
 		{
 			name:     "Only CombineBrkts set",
 			inputXML: `<w:eastAsianLayout w:combineBrackets="square"></w:eastAsianLayout>`,
 			expected: EALayout{
-				CombineBrkts: internal.ToPtr(stypes.CombineBracketsSquare),
+				CombineBrkts: new(stypes.CombineBracketsSquare),
 			},
 		},
 		{
 			name:     "Only Vert set",
 			inputXML: `<w:eastAsianLayout w:vert="off"></w:eastAsianLayout>`,
 			expected: EALayout{
-				Vert: internal.ToPtr(stypes.OnOffOff),
+				Vert: new(stypes.OnOffOff),
 			},
 		},
 		{
 			name:     "Only VertCompress set",
 			inputXML: `<w:eastAsianLayout w:vertCompress="on"></w:eastAsianLayout>`,
 			expected: EALayout{
-				VertCompress: internal.ToPtr(stypes.OnOffOn),
+				VertCompress: new(stypes.OnOffOn),
 			},
 		},
 		{

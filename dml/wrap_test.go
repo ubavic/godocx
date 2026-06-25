@@ -21,10 +21,10 @@ func TestWrapSquare_MarshalXML(t *testing.T) {
 			name: "With all attributes and EffectExtent",
 			input: WrapSquare{
 				WrapText: dmlst.WrapTextLeft,
-				DistT:    internal.ToPtr(uint(10)),
-				DistB:    internal.ToPtr(uint(15)),
-				DistL:    internal.ToPtr(uint(5)),
-				DistR:    internal.ToPtr(uint(8)),
+				DistT:    new(uint(10)),
+				DistB:    new(uint(15)),
+				DistL:    new(uint(5)),
+				DistR:    new(uint(8)),
 				EffectExtent: &EffectExtent{
 					LeftEdge:   1,
 					TopEdge:    2,
@@ -45,8 +45,8 @@ func TestWrapSquare_MarshalXML(t *testing.T) {
 			name: "With DistT and DistR attributes",
 			input: WrapSquare{
 				WrapText: dmlst.WrapTextLeft,
-				DistT:    internal.ToPtr(uint(10)),
-				DistR:    internal.ToPtr(uint(8)),
+				DistT:    new(uint(10)),
+				DistR:    new(uint(8)),
 			},
 			expected: `<wp:wrapSquare wrapText="left" distT="10" distR="8"></wp:wrapSquare>`,
 		},
@@ -83,10 +83,10 @@ func TestWrapSquare_UnmarshalXML(t *testing.T) {
 			inputXML: `<wp:wrapSquare wrapText="left" distT="10" distB="15" distL="5" distR="8"><wp:effectExtent l="1" t="2" r="3" b="4"></wp:effectExtent></wp:wrapSquare>`,
 			expected: WrapSquare{
 				WrapText: dmlst.WrapTextLeft,
-				DistT:    internal.ToPtr(uint(10)),
-				DistB:    internal.ToPtr(uint(15)),
-				DistL:    internal.ToPtr(uint(5)),
-				DistR:    internal.ToPtr(uint(8)),
+				DistT:    new(uint(10)),
+				DistB:    new(uint(15)),
+				DistL:    new(uint(5)),
+				DistR:    new(uint(8)),
 				EffectExtent: &EffectExtent{
 					LeftEdge:   1,
 					TopEdge:    2,
@@ -107,8 +107,8 @@ func TestWrapSquare_UnmarshalXML(t *testing.T) {
 			inputXML: `<wp:wrapSquare wrapText="left" distT="10" distR="8"></wp:wrapSquare>`,
 			expected: WrapSquare{
 				WrapText: dmlst.WrapTextLeft,
-				DistT:    internal.ToPtr(uint(10)),
-				DistR:    internal.ToPtr(uint(8)),
+				DistT:    new(uint(10)),
+				DistR:    new(uint(8)),
 			},
 		},
 	}
@@ -159,7 +159,7 @@ func TestWrapPolygon_MarshalXML(t *testing.T) {
 			input: WrapPolygon{
 				Start:  dmlct.NewPoint2D(1, 2),
 				LineTo: []dmlct.Point2D{dmlct.NewPoint2D(3, 4), dmlct.NewPoint2D(5, 6)},
-				Edited: internal.ToPtr(true),
+				Edited: new(true),
 			},
 			expected: `<wp:wrapPolygon xmlns="wp" edited="true"><wp:start x="1" y="2"></wp:start><wp:lineTo x="3" y="4"></wp:lineTo><wp:lineTo x="5" y="6"></wp:lineTo></wp:wrapPolygon>`,
 		},
@@ -206,7 +206,7 @@ func TestWrapPolygon_UnmarshalXML(t *testing.T) {
 			expected: WrapPolygon{
 				Start:  dmlct.Point2D{XAxis: 1, YAxis: 2},
 				LineTo: []dmlct.Point2D{{XAxis: 3, YAxis: 4}, {XAxis: 5, YAxis: 6}},
-				Edited: internal.ToPtr(true),
+				Edited: new(true),
 			},
 		},
 		{
@@ -262,11 +262,11 @@ func TestWrapTight_MarshalXML(t *testing.T) {
 				WrapPolygon: WrapPolygon{
 					Start:  dmlct.Point2D{XAxis: 1, YAxis: 2},
 					LineTo: []dmlct.Point2D{{XAxis: 3, YAxis: 4}, {XAxis: 5, YAxis: 6}},
-					Edited: internal.ToPtr(true),
+					Edited: new(true),
 				},
 				WrapText: dmlst.WrapTextRight,
-				DistL:    internal.ToPtr(uint(10)),
-				DistR:    internal.ToPtr(uint(5)),
+				DistL:    new(uint(10)),
+				DistR:    new(uint(5)),
 			},
 			expected: `<wp:wrapTight wrapText="right" distL="10" distR="5"><wp:wrapPolygon edited="true"><wp:start x="1" y="2"></wp:start><wp:lineTo x="3" y="4"></wp:lineTo><wp:lineTo x="5" y="6"></wp:lineTo></wp:wrapPolygon></wp:wrapTight>`,
 		},
@@ -276,7 +276,7 @@ func TestWrapTight_MarshalXML(t *testing.T) {
 				WrapPolygon: WrapPolygon{
 					Start:  dmlct.Point2D{XAxis: 1, YAxis: 2},
 					LineTo: []dmlct.Point2D{{XAxis: 3, YAxis: 4}, {XAxis: 5, YAxis: 6}},
-					Edited: internal.ToPtr(false),
+					Edited: new(false),
 				},
 				WrapText: dmlst.WrapTextRight,
 				DistL:    nil,
@@ -368,11 +368,11 @@ func TestWrapTight_UnmarshalXML(t *testing.T) {
 				WrapPolygon: WrapPolygon{
 					Start:  dmlct.Point2D{XAxis: 1, YAxis: 2},
 					LineTo: []dmlct.Point2D{{XAxis: 3, YAxis: 4}, {XAxis: 5, YAxis: 6}},
-					Edited: internal.ToPtr(true),
+					Edited: new(true),
 				},
 				WrapText: dmlst.WrapTextRight,
-				DistL:    internal.ToPtr(uint(10)),
-				DistR:    internal.ToPtr(uint(5)),
+				DistL:    new(uint(10)),
+				DistR:    new(uint(5)),
 			},
 			expectedErr: false,
 		},
@@ -438,11 +438,11 @@ func TestWrapThrough_MarshalXML(t *testing.T) {
 				WrapPolygon: WrapPolygon{
 					Start:  dmlct.Point2D{XAxis: 1, YAxis: 2},
 					LineTo: []dmlct.Point2D{{XAxis: 3, YAxis: 4}, {XAxis: 5, YAxis: 6}},
-					Edited: internal.ToPtr(true),
+					Edited: new(true),
 				},
 				WrapText: dmlst.WrapTextRight,
-				DistL:    internal.ToPtr(uint(10)),
-				DistR:    internal.ToPtr(uint(5)),
+				DistL:    new(uint(10)),
+				DistR:    new(uint(5)),
 			},
 			expected: `<wp:wrapThrough wrapText="right" distL="10" distR="5"><wp:wrapPolygon edited="true"><wp:start x="1" y="2"></wp:start><wp:lineTo x="3" y="4"></wp:lineTo><wp:lineTo x="5" y="6"></wp:lineTo></wp:wrapPolygon></wp:wrapThrough>`,
 		},
@@ -452,7 +452,7 @@ func TestWrapThrough_MarshalXML(t *testing.T) {
 				WrapPolygon: WrapPolygon{
 					Start:  dmlct.Point2D{XAxis: 1, YAxis: 2},
 					LineTo: []dmlct.Point2D{{XAxis: 3, YAxis: 4}, {XAxis: 5, YAxis: 6}},
-					Edited: internal.ToPtr(false),
+					Edited: new(false),
 				},
 				WrapText: dmlst.WrapTextRight,
 				DistL:    nil,
@@ -543,11 +543,11 @@ func TestWrapThrough_UnmarshalXML(t *testing.T) {
 				WrapPolygon: WrapPolygon{
 					Start:  dmlct.Point2D{XAxis: 1, YAxis: 2},
 					LineTo: []dmlct.Point2D{{XAxis: 3, YAxis: 4}, {XAxis: 5, YAxis: 6}},
-					Edited: internal.ToPtr(true),
+					Edited: new(true),
 				},
 				WrapText: dmlst.WrapTextRight,
-				DistL:    internal.ToPtr(uint(10)),
-				DistR:    internal.ToPtr(uint(5)),
+				DistL:    new(uint(10)),
+				DistR:    new(uint(5)),
 			},
 			expectedErr: false,
 		},
@@ -610,8 +610,8 @@ func TestWrapTopBtm_MarshalXML(t *testing.T) {
 		{
 			name: "With all attributes and EffectExtent",
 			input: WrapTopBtm{
-				DistT: internal.ToPtr(uint(10)),
-				DistB: internal.ToPtr(uint(15)),
+				DistT: new(uint(10)),
+				DistB: new(uint(15)),
 				EffectExtent: &EffectExtent{
 					LeftEdge:   1,
 					TopEdge:    2,
@@ -624,7 +624,7 @@ func TestWrapTopBtm_MarshalXML(t *testing.T) {
 		{
 			name: "With DistT and EffectExtent",
 			input: WrapTopBtm{
-				DistT: internal.ToPtr(uint(10)),
+				DistT: new(uint(10)),
 				EffectExtent: &EffectExtent{
 					LeftEdge:   1,
 					TopEdge:    2,
@@ -637,7 +637,7 @@ func TestWrapTopBtm_MarshalXML(t *testing.T) {
 		{
 			name: "With DistB only",
 			input: WrapTopBtm{
-				DistB: internal.ToPtr(uint(15)),
+				DistB: new(uint(15)),
 			},
 			expected: `<wp:wrapTopAndBottom distB="15"></wp:wrapTopAndBottom>`,
 		},
@@ -707,8 +707,8 @@ func TestWrapTopBtm_UnmarshalXML(t *testing.T) {
 			name:     "With all attributes and EffectExtent",
 			xmlInput: `<wp:wrapTopAndBottom distT="10" distB="15"><wp:effectExtent l="1" t="2" r="3" b="4"></wp:effectExtent></wp:wrapTopAndBottom>`,
 			expected: WrapTopBtm{
-				DistT: internal.ToPtr(uint(10)),
-				DistB: internal.ToPtr(uint(15)),
+				DistT: new(uint(10)),
+				DistB: new(uint(15)),
 				EffectExtent: &EffectExtent{
 					LeftEdge:   1,
 					TopEdge:    2,
@@ -721,7 +721,7 @@ func TestWrapTopBtm_UnmarshalXML(t *testing.T) {
 			name:     "With DistT and EffectExtent",
 			xmlInput: `<wp:wrapTopAndBottom distT="10"><wp:effectExtent l="1" t="2" r="3" b="4"></wp:effectExtent></wp:wrapTopAndBottom>`,
 			expected: WrapTopBtm{
-				DistT: internal.ToPtr(uint(10)),
+				DistT: new(uint(10)),
 				EffectExtent: &EffectExtent{
 					LeftEdge:   1,
 					TopEdge:    2,
@@ -734,7 +734,7 @@ func TestWrapTopBtm_UnmarshalXML(t *testing.T) {
 			name:     "With DistB only",
 			xmlInput: `<wp:wrapTopAndBottom distB="15"></wp:wrapTopAndBottom>`,
 			expected: WrapTopBtm{
-				DistB: internal.ToPtr(uint(15)),
+				DistB: new(uint(15)),
 			},
 		},
 		{

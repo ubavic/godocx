@@ -4,8 +4,6 @@ import (
 	"encoding/xml"
 	"strings"
 	"testing"
-
-	"github.com/ubavic/godocx/internal"
 )
 
 func TestTrackChange_MarshalXML(t *testing.T) {
@@ -19,7 +17,7 @@ func TestTrackChange_MarshalXML(t *testing.T) {
 			input: TrackChange{
 				ID:     123,
 				Author: "John Doe",
-				Date:   internal.ToPtr("2023-06-18T12:34:56Z"),
+				Date:   new("2023-06-18T12:34:56Z"),
 			},
 			expected: `<w:TrackChange w:id="123" w:author="John Doe" w:date="2023-06-18T12:34:56Z"></w:TrackChange>`,
 		},
@@ -65,7 +63,7 @@ func TestTrackChange_UnmarshalXML(t *testing.T) {
 			expected: TrackChange{
 				ID:     123,
 				Author: "John Doe",
-				Date:   internal.ToPtr("2023-06-18T12:34:56Z"),
+				Date:   new("2023-06-18T12:34:56Z"),
 			},
 		},
 		{

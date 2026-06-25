@@ -429,7 +429,7 @@ func TestMarshalXML(t *testing.T) {
 	}{
 		{
 			name:        "WithValue",
-			instance:    GenOptStrVal[string]{Val: internal.ToPtr("test")},
+			instance:    GenOptStrVal[string]{Val: new("test")},
 			expectedXML: `<element w:val="test"></element>`,
 		},
 		{
@@ -439,7 +439,7 @@ func TestMarshalXML(t *testing.T) {
 		},
 		{
 			name:        "EmptyValue",
-			instance:    GenOptStrVal[string]{Val: internal.ToPtr("")},
+			instance:    GenOptStrVal[string]{Val: new("")},
 			expectedXML: `<element w:val=""></element>`,
 		},
 	}
@@ -457,8 +457,8 @@ func TestMarshalXML(t *testing.T) {
 			}
 
 			// Convert expected and actual values to pointers for comparison
-			expectedPtr := internal.ToPtr(tt.expectedXML)
-			actualPtr := internal.ToPtr(buf.String())
+			expectedPtr := new(tt.expectedXML)
+			actualPtr := new(buf.String())
 
 			// Compare using ComparePtr function
 			err = internal.ComparePtr("XML Output", expectedPtr, actualPtr)
@@ -479,7 +479,7 @@ func TestUnmarshalXML(t *testing.T) {
 			name:      "WithValAttribute",
 			xmlString: `<element w:val="test"></element>`,
 			expectedStruct: GenOptStrVal[string]{
-				Val: internal.ToPtr("test"),
+				Val: new("test"),
 			},
 		},
 		{
@@ -493,7 +493,7 @@ func TestUnmarshalXML(t *testing.T) {
 			name:      "EmptyValAttribute",
 			xmlString: `<element w:val=""></element>`,
 			expectedStruct: GenOptStrVal[string]{
-				Val: internal.ToPtr(""),
+				Val: new(""),
 			},
 		},
 	}

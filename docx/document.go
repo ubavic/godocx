@@ -3,7 +3,6 @@ package docx
 import (
 	"encoding/xml"
 
-	"github.com/ubavic/godocx/internal"
 	"github.com/ubavic/godocx/wml/stypes"
 )
 
@@ -118,7 +117,7 @@ func (d *Document) UnmarshalXML(decoder *xml.Decoder, start xml.StartElement) (e
 //	para := document.AddPageBreak()
 func (rd *RootDoc) AddPageBreak() *Paragraph {
 	p := rd.AddEmptyParagraph()
-	p.AddRun().AddBreak(internal.ToPtr(stypes.BreakTypePage))
+	p.AddRun().AddBreak(new(stypes.BreakTypePage))
 
 	return p
 }

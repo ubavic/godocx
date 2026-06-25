@@ -5,7 +5,6 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ubavic/godocx/internal"
 	"github.com/ubavic/godocx/wml/stypes"
 )
 
@@ -18,23 +17,23 @@ func TestSpacing_MarshalXML(t *testing.T) {
 		{
 			name: "All fields set",
 			input: Spacing{
-				Before:            internal.ToPtr(uint64(120)),
-				After:             internal.ToPtr(uint64(240)),
-				BeforeLines:       internal.ToPtr(10),
-				BeforeAutospacing: internal.ToPtr(stypes.OnOffOn),
-				AfterAutospacing:  internal.ToPtr(stypes.OnOffOff),
-				Line:              internal.ToPtr(360),
-				LineRule:          internal.ToPtr(stypes.LineSpacingRuleExact),
+				Before:            new(uint64(120)),
+				After:             new(uint64(240)),
+				BeforeLines:       new(10),
+				BeforeAutospacing: new(stypes.OnOffOn),
+				AfterAutospacing:  new(stypes.OnOffOff),
+				Line:              new(360),
+				LineRule:          new(stypes.LineSpacingRuleExact),
 			},
 			expected: `<w:spacing w:before="120" w:after="240" w:beforeLines="10" w:beforeAutospacing="on" w:afterAutospacing="off" w:line="360" w:lineRule="exact"></w:spacing>`,
 		},
 		{
 			name: "Some fields set",
 			input: Spacing{
-				Before:   internal.ToPtr(uint64(120)),
-				After:    internal.ToPtr(uint64(240)),
-				Line:     internal.ToPtr(360),
-				LineRule: internal.ToPtr(stypes.LineSpacingRuleAuto),
+				Before:   new(uint64(120)),
+				After:    new(uint64(240)),
+				Line:     new(360),
+				LineRule: new(stypes.LineSpacingRuleAuto),
 			},
 			expected: `<w:spacing w:before="120" w:after="240" w:line="360" w:lineRule="auto"></w:spacing>`,
 		},

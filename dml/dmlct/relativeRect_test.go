@@ -5,8 +5,6 @@ import (
 	"reflect"
 	"strings"
 	"testing"
-
-	"github.com/ubavic/godocx/internal"
 )
 
 func TestRelativeRect_MarshalXML(t *testing.T) {
@@ -18,18 +16,18 @@ func TestRelativeRect_MarshalXML(t *testing.T) {
 		{
 			name: "All fields set",
 			input: RelativeRect{
-				Left:   internal.ToPtr(10),
-				Right:  internal.ToPtr(20),
-				Top:    internal.ToPtr(30),
-				Bottom: internal.ToPtr(40),
+				Left:   new(10),
+				Right:  new(20),
+				Top:    new(30),
+				Bottom: new(40),
 			},
 			expected: `<RelativeRect t="30" l="10" b="40" r="20"></RelativeRect>`,
 		},
 		{
 			name: "Some fields set",
 			input: RelativeRect{
-				Top:    internal.ToPtr(30),
-				Bottom: internal.ToPtr(40),
+				Top:    new(30),
+				Bottom: new(40),
 			},
 			expected: `<RelativeRect t="30" b="40"></RelativeRect>`,
 		},
@@ -70,18 +68,18 @@ func TestRelativeRect_UnmarshalXML(t *testing.T) {
 			name:     "All fields set",
 			inputXML: `<RelativeRect l="10" r="20" t="30" b="40"></RelativeRect>`,
 			expected: RelativeRect{
-				Left:   internal.ToPtr(10),
-				Right:  internal.ToPtr(20),
-				Top:    internal.ToPtr(30),
-				Bottom: internal.ToPtr(40),
+				Left:   new(10),
+				Right:  new(20),
+				Top:    new(30),
+				Bottom: new(40),
 			},
 		},
 		{
 			name:     "Some fields set",
 			inputXML: `<RelativeRect t="30" b="40"></RelativeRect>`,
 			expected: RelativeRect{
-				Top:    internal.ToPtr(30),
-				Bottom: internal.ToPtr(40),
+				Top:    new(30),
+				Bottom: new(40),
 			},
 		},
 		{

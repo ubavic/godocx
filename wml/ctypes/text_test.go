@@ -47,11 +47,11 @@ func TestTextUnmarshalXML(t *testing.T) {
 		{`<w:t></w:t>`, NewText()},
 		{`<w:t xml:space="preserve">Hello, World!</w:t>`, &Text{
 			Text:  "Hello, World!",
-			Space: internal.ToPtr("preserve"),
+			Space: new("preserve"),
 		}},
 		{`<w:t xml:space="preserve">Some text</w:t>`, &Text{
 			Text:  "Some text",
-			Space: internal.ToPtr("preserve"),
+			Space: new("preserve"),
 		}},
 	}
 

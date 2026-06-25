@@ -5,8 +5,6 @@ import (
 	"encoding/xml"
 	"reflect"
 	"testing"
-
-	"github.com/ubavic/godocx/internal"
 )
 
 func TestCellMerge_MarshalXML(t *testing.T) {
@@ -15,8 +13,8 @@ func TestCellMerge_MarshalXML(t *testing.T) {
 		ID:         1,
 		Author:     "John Doe",
 		Date:       nil,
-		VMerge:     internal.ToPtr(AnnotationVMergeCont),
-		VMergeOrig: internal.ToPtr(AnnotationVMergeRest),
+		VMerge:     new(AnnotationVMergeCont),
+		VMergeOrig: new(AnnotationVMergeRest),
 	}
 
 	// Marshal the CellMerge instance to XML
@@ -43,7 +41,7 @@ func TestCellMerge_UnmarshalXML(t *testing.T) {
 		ID:         2,
 		Author:     "Jane Smith",
 		Date:       xmlStrPtr("2024-06-25"), // Helper function to get pointer to string
-		VMerge:     internal.ToPtr(AnnotationVMergeRest),
+		VMerge:     new(AnnotationVMergeRest),
 		VMergeOrig: nil,
 	}
 

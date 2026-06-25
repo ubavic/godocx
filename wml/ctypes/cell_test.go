@@ -5,7 +5,6 @@ import (
 	"encoding/xml"
 	"testing"
 
-	"github.com/ubavic/godocx/internal"
 	"github.com/ubavic/godocx/wml/stypes"
 )
 
@@ -24,7 +23,7 @@ func TestCell_MarshalXML(t *testing.T) {
 			name: "Cell with Property and Paragraph Content",
 			input: Cell{
 				Property: &CellProperty{
-					NoWrap: &OnOff{Val: internal.ToPtr(stypes.OnOffTrue)},
+					NoWrap: &OnOff{Val: new(stypes.OnOffTrue)},
 				},
 				Contents: []TCBlockContent{
 					{

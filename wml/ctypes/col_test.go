@@ -4,8 +4,6 @@ import (
 	"encoding/xml"
 	"strings"
 	"testing"
-
-	"github.com/ubavic/godocx/internal"
 )
 
 func TestColumn_MarshalXML(t *testing.T) {
@@ -16,7 +14,7 @@ func TestColumn_MarshalXML(t *testing.T) {
 	}{
 		{
 			name:     "With Width",
-			input:    Column{Width: internal.ToPtr(uint64(500))},
+			input:    Column{Width: new(uint64(500))},
 			expected: `<w:gridCol w:w="500"></w:gridCol>`,
 		},
 		{
@@ -55,7 +53,7 @@ func TestColumn_UnmarshalXML(t *testing.T) {
 		{
 			name:     "With Width",
 			inputXML: `<w:gridCol w:w="750"></w:gridCol>`,
-			expected: Column{Width: internal.ToPtr(uint64(750))},
+			expected: Column{Width: new(uint64(750))},
 		},
 		{
 			name:     "Without Width",

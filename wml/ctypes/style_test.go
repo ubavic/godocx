@@ -5,7 +5,6 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/ubavic/godocx/internal"
 	"github.com/ubavic/godocx/wml/stypes"
 )
 
@@ -51,10 +50,10 @@ func TestStyle_MarshalXML(t *testing.T) {
 						Type: stypes.TblStyleOverrideWholeTable,
 					},
 				},
-				Type:        internal.ToPtr(stypes.StyleTypeCharacter),
+				Type:        new(stypes.StyleTypeCharacter),
 				ID:          stringPtr("styleID"),
-				Default:     internal.ToPtr(stypes.OnOffOn),
-				CustomStyle: internal.ToPtr(stypes.OnOffOff),
+				Default:     new(stypes.OnOffOn),
+				CustomStyle: new(stypes.OnOffOff),
 			},
 			expected: `<w:style w:type="character" w:styleId="styleID" w:default="on" w:customStyle="off">` +
 				`<w:name w:val="StyleName"></w:name>` +
@@ -154,10 +153,10 @@ func TestStyle_UnmarshalXML(t *testing.T) {
 						Type: stypes.TblStyleOverrideWholeTable,
 					},
 				},
-				Type:        internal.ToPtr(stypes.StyleTypeCharacter),
+				Type:        new(stypes.StyleTypeCharacter),
 				ID:          stringPtr("styleID"),
-				Default:     internal.ToPtr(stypes.OnOffOn),
-				CustomStyle: internal.ToPtr(stypes.OnOffOff),
+				Default:     new(stypes.OnOffOn),
+				CustomStyle: new(stypes.OnOffOff),
 			},
 		},
 	}

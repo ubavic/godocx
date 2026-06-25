@@ -6,7 +6,6 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/ubavic/godocx/internal"
 	"github.com/ubavic/godocx/wml/stypes"
 )
 
@@ -79,7 +78,7 @@ func TestCellBorders_UnmarshalXML(t *testing.T) {
 	</w:tcBorders>`
 
 	expectedBorders := &CellBorders{
-		Top:     &Border{Val: stypes.BorderStyleSingle, Color: internal.ToPtr("red"), ThemeColor: internal.ToPtr(stypes.ThemeColor("accent1")), ThemeTint: internal.ToPtr("80"), ThemeShade: internal.ToPtr("20"), Space: internal.ToPtr("4"), Shadow: internal.ToPtr(stypes.OnOff("true")), Frame: internal.ToPtr(stypes.OnOff("false"))},
+		Top:     &Border{Val: stypes.BorderStyleSingle, Color: new("red"), ThemeColor: new(stypes.ThemeColor("accent1")), ThemeTint: new("80"), ThemeShade: new("20"), Space: new("4"), Shadow: new(stypes.OnOff("true")), Frame: new(stypes.OnOff("false"))},
 		Left:    &Border{Val: stypes.BorderStyleDouble},
 		Bottom:  &Border{Val: stypes.BorderStyleDashed},
 		Right:   &Border{Val: stypes.BorderStyleDotted},

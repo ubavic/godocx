@@ -3,7 +3,6 @@ package ctypes
 import (
 	"encoding/xml"
 
-	"github.com/ubavic/godocx/internal"
 	"github.com/ubavic/godocx/wml/stypes"
 )
 
@@ -95,15 +94,15 @@ func (p *Paragraph) UnmarshalXML(d *xml.Decoder, start xml.StartElement) (err er
 	for _, attr := range start.Attr {
 		switch attr.Name.Local {
 		case "rsidRPr":
-			p.RsidRPr = internal.ToPtr(stypes.LongHexNum(attr.Value))
+			p.RsidRPr = new(stypes.LongHexNum(attr.Value))
 		case "rsidR":
-			p.RsidR = internal.ToPtr(stypes.LongHexNum(attr.Value))
+			p.RsidR = new(stypes.LongHexNum(attr.Value))
 		case "rsidDel":
-			p.RsidDel = internal.ToPtr(stypes.LongHexNum(attr.Value))
+			p.RsidDel = new(stypes.LongHexNum(attr.Value))
 		case "rsidP":
-			p.RsidP = internal.ToPtr(stypes.LongHexNum(attr.Value))
+			p.RsidP = new(stypes.LongHexNum(attr.Value))
 		case "rsidRDefault":
-			p.RsidRDefault = internal.ToPtr(stypes.LongHexNum(attr.Value))
+			p.RsidRDefault = new(stypes.LongHexNum(attr.Value))
 		}
 	}
 

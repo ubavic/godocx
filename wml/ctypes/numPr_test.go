@@ -4,8 +4,6 @@ import (
 	"encoding/xml"
 	"strings"
 	"testing"
-
-	"github.com/ubavic/godocx/internal"
 )
 
 func TestNumProp_MarshalXML(t *testing.T) {
@@ -24,7 +22,7 @@ func TestNumProp_MarshalXML(t *testing.T) {
 					ID:       123,
 					Author:   "John Doe",
 					Date:     &date,
-					Original: internal.ToPtr("original"),
+					Original: new("original"),
 				},
 				Ins: &TrackChange{
 					ID:     124,
@@ -85,12 +83,12 @@ func TestNumProp_UnmarshalXML(t *testing.T) {
 				NumChange: &TrackChangeNum{
 					ID:     1,
 					Author: "author",
-					Date:   internal.ToPtr("2024-06-19T12:00:00Z"),
+					Date:   new("2024-06-19T12:00:00Z"),
 				},
 				Ins: &TrackChange{
 					ID:     2,
 					Author: "author",
-					Date:   internal.ToPtr("2024-06-19T12:00:00Z"),
+					Date:   new("2024-06-19T12:00:00Z"),
 				},
 			},
 		},

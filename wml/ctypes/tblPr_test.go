@@ -6,7 +6,6 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ubavic/godocx/internal"
 	"github.com/ubavic/godocx/wml/stypes"
 )
 
@@ -40,11 +39,11 @@ func TestTableProp_MarshalXML(t *testing.T) {
 			input: TableProp{
 				Style: NewCTString("TestStyle"),
 				FloatPos: &FloatPos{
-					LeftFromText: internal.ToPtr(uint64(10)),
+					LeftFromText: new(uint64(10)),
 				},
 				Overlap: NewGenSingleStrVal(stypes.TblOverlapNever),
 				BidiVisual: &OnOff{
-					Val: internal.ToPtr(stypes.OnOffOne),
+					Val: new(stypes.OnOffOne),
 				},
 				RowCountInRowBand: &DecimalNum{Val: 1},
 				RowCountInColBand: &DecimalNum{Val: 2},
@@ -56,7 +55,7 @@ func TestTableProp_MarshalXML(t *testing.T) {
 					Top: &Border{Val: stypes.BorderStyleApples},
 				},
 				Shading:    &Shading{Val: "clear"},
-				Layout:     &TableLayout{LayoutType: internal.ToPtr(stypes.TableLayoutAutoFit)},
+				Layout:     &TableLayout{LayoutType: new(stypes.TableLayoutAutoFit)},
 				CellMargin: &CellMargins{Top: NewTableWidth(40, stypes.TableWidthDxa)},
 				TableLook:  &CTString{Val: "001"},
 			},
@@ -152,11 +151,11 @@ func TestTableProp_UnmarshalXML(t *testing.T) {
 			expected: TableProp{
 				Style: NewCTString("TestStyle"),
 				FloatPos: &FloatPos{
-					LeftFromText: internal.ToPtr(uint64(10)),
+					LeftFromText: new(uint64(10)),
 				},
 				Overlap: NewGenSingleStrVal(stypes.TblOverlapNever),
 				BidiVisual: &OnOff{
-					Val: internal.ToPtr(stypes.OnOffOne),
+					Val: new(stypes.OnOffOne),
 				},
 				RowCountInRowBand: &DecimalNum{Val: 1},
 				RowCountInColBand: &DecimalNum{Val: 2},
@@ -168,7 +167,7 @@ func TestTableProp_UnmarshalXML(t *testing.T) {
 					Top: &Border{Val: stypes.BorderStyleApples},
 				},
 				Shading:    &Shading{Val: "clear"},
-				Layout:     &TableLayout{LayoutType: internal.ToPtr(stypes.TableLayoutAutoFit)},
+				Layout:     &TableLayout{LayoutType: new(stypes.TableLayoutAutoFit)},
 				CellMargin: &CellMargins{Top: NewTableWidth(40, stypes.TableWidthDxa)},
 				TableLook:  &CTString{Val: "001"},
 			},

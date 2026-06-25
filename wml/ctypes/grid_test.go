@@ -5,8 +5,6 @@ import (
 	"reflect"
 	"strings"
 	"testing"
-
-	"github.com/ubavic/godocx/internal"
 )
 
 func TestGrid_MarshalXML(t *testing.T) {
@@ -19,8 +17,8 @@ func TestGrid_MarshalXML(t *testing.T) {
 			name: "With Columns and GridChange",
 			input: Grid{
 				Col: []Column{
-					{Width: internal.ToPtr(uint64(500))},
-					{Width: internal.ToPtr(uint64(750))},
+					{Width: new(uint64(500))},
+					{Width: new(uint64(750))},
 				},
 				GridChange: &GridChange{ID: 1},
 			},
@@ -30,8 +28,8 @@ func TestGrid_MarshalXML(t *testing.T) {
 			name: "With Columns, without GridChange",
 			input: Grid{
 				Col: []Column{
-					{Width: internal.ToPtr(uint64(300))},
-					{Width: internal.ToPtr(uint64(600))},
+					{Width: new(uint64(300))},
+					{Width: new(uint64(600))},
 				},
 			},
 			expected: `<w:tblGrid><w:gridCol w:w="300"></w:gridCol><w:gridCol w:w="600"></w:gridCol></w:tblGrid>`,
@@ -74,8 +72,8 @@ func TestGrid_UnmarshalXML(t *testing.T) {
 			inputXML: `<w:tblGrid><w:gridCol w:w="500"></w:gridCol><w:gridCol w:w="750"></w:gridCol><w:tblGridChange w:id="1"></w:tblGridChange></w:tblGrid>`,
 			expected: Grid{
 				Col: []Column{
-					{Width: internal.ToPtr(uint64(500))},
-					{Width: internal.ToPtr(uint64(750))},
+					{Width: new(uint64(500))},
+					{Width: new(uint64(750))},
 				},
 				GridChange: &GridChange{ID: 1},
 			},
@@ -85,8 +83,8 @@ func TestGrid_UnmarshalXML(t *testing.T) {
 			inputXML: `<w:tblGrid><w:gridCol w:w="300"></w:gridCol><w:gridCol w:w="600"></w:gridCol></w:tblGrid>`,
 			expected: Grid{
 				Col: []Column{
-					{Width: internal.ToPtr(uint64(300))},
-					{Width: internal.ToPtr(uint64(600))},
+					{Width: new(uint64(300))},
+					{Width: new(uint64(600))},
 				},
 			},
 		},

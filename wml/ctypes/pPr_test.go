@@ -63,10 +63,10 @@ func TestParagraphProp_MarshalUnmarshal(t *testing.T) {
 			ILvl: NewDecimalNum(10),
 		},
 		Indent: &Indent{
-			Left: internal.ToPtr(10),
+			Left: new(10),
 		},
 		Spacing: &Spacing{
-			After: internal.ToPtr(uint64(10)),
+			After: new(uint64(10)),
 		},
 		Border: &ParaBorder{
 			Top: &Border{
@@ -74,7 +74,7 @@ func TestParagraphProp_MarshalUnmarshal(t *testing.T) {
 			},
 		},
 		FrameProp: &FrameProp{
-			Width: internal.ToPtr(int64(10)),
+			Width: new(int64(10)),
 		},
 		KeepNext:            &OnOff{},
 		KeepLines:           &OnOff{},
@@ -296,7 +296,7 @@ func TestPPrChange_MarshalXML(t *testing.T) {
 			input: PPrChange{
 				ID:       123,
 				Author:   "John Doe",
-				Date:     internal.ToPtr("2024-06-19"),
+				Date:     new("2024-06-19"),
 				ParaProp: &ParagraphProp{
 					// Initialize ParagraphProp fields here if needed
 				},
@@ -319,7 +319,7 @@ func TestPPrChange_MarshalXML(t *testing.T) {
 			input: PPrChange{
 				ID:     789,
 				Author: "Alice Brown",
-				Date:   internal.ToPtr("2024-06-20"),
+				Date:   new("2024-06-20"),
 			},
 			expected: `<w:pPrChange id="789" author="Alice Brown" date="2024-06-20"></w:pPrChange>`,
 		},

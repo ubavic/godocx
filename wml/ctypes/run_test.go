@@ -5,8 +5,6 @@ import (
 	"reflect"
 	"strings"
 	"testing"
-
-	"github.com/ubavic/godocx/internal"
 )
 
 func TestSym_MarshalXML(t *testing.T) {
@@ -17,17 +15,17 @@ func TestSym_MarshalXML(t *testing.T) {
 	}{
 		{
 			name:     "Test with Font only",
-			input:    Sym{Font: internal.ToPtr("Arial")},
+			input:    Sym{Font: new("Arial")},
 			expected: `<w:sym w:font="Arial"></w:sym>`,
 		},
 		{
 			name:     "Test with Char only",
-			input:    Sym{Char: internal.ToPtr("F0")},
+			input:    Sym{Char: new("F0")},
 			expected: `<w:sym w:char="F0"></w:sym>`,
 		},
 		{
 			name:     "Test with Font and Char",
-			input:    Sym{Font: internal.ToPtr("Times New Roman"), Char: internal.ToPtr("03")},
+			input:    Sym{Font: new("Times New Roman"), Char: new("03")},
 			expected: `<w:sym w:font="Times New Roman" w:char="03"></w:sym>`,
 		},
 		{
@@ -69,17 +67,17 @@ func TestSym_UnmarshalXML(t *testing.T) {
 		{
 			name:     "Test with Font attribute",
 			inputXML: `<w:sym w:font="Verdana"></w:sym>`,
-			expected: Sym{Font: internal.ToPtr("Verdana")},
+			expected: Sym{Font: new("Verdana")},
 		},
 		{
 			name:     "Test with Char attribute",
 			inputXML: `<w:sym w:char="0E"></w:sym>`,
-			expected: Sym{Char: internal.ToPtr("0E")},
+			expected: Sym{Char: new("0E")},
 		},
 		{
 			name:     "Test with Font and Char attributes",
 			inputXML: `<w:sym w:font="Arial" w:char="F2"></w:sym>`,
-			expected: Sym{Font: internal.ToPtr("Arial"), Char: internal.ToPtr("F2")},
+			expected: Sym{Font: new("Arial"), Char: new("F2")},
 		},
 	}
 

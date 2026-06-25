@@ -4,7 +4,6 @@ import (
 	"encoding/xml"
 
 	"github.com/ubavic/godocx/dml"
-	"github.com/ubavic/godocx/internal"
 	"github.com/ubavic/godocx/wml/stypes"
 )
 
@@ -158,11 +157,11 @@ func (r *Run) UnmarshalXML(d *xml.Decoder, start xml.StartElement) (err error) {
 	for _, attr := range start.Attr {
 		switch attr.Name.Local {
 		case "rsidRPr":
-			r.RsidRPr = internal.ToPtr(stypes.LongHexNum(attr.Value))
+			r.RsidRPr = new(stypes.LongHexNum(attr.Value))
 		case "rsidR":
-			r.RsidR = internal.ToPtr(stypes.LongHexNum(attr.Value))
+			r.RsidR = new(stypes.LongHexNum(attr.Value))
 		case "rsidDel":
-			r.RsidDel = internal.ToPtr(stypes.LongHexNum(attr.Value))
+			r.RsidDel = new(stypes.LongHexNum(attr.Value))
 		}
 	}
 

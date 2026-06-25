@@ -6,7 +6,6 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ubavic/godocx/internal"
 	"github.com/ubavic/godocx/wml/stypes"
 )
 
@@ -21,7 +20,7 @@ func TestTab_MarshalXML(t *testing.T) {
 			input: Tab{
 				Val:        stypes.CustTabStopCenter,
 				Position:   720,
-				LeaderChar: internal.ToPtr(stypes.CustLeadCharDot),
+				LeaderChar: new(stypes.CustLeadCharDot),
 			},
 			expected: `<w:tab w:val="center" w:pos="720" w:leader="dot"></w:tab>`,
 		},
@@ -71,7 +70,7 @@ func TestTab_UnmarshalXML(t *testing.T) {
 			expected: Tab{
 				Val:        stypes.CustTabStopCenter,
 				Position:   720,
-				LeaderChar: internal.ToPtr(stypes.CustLeadCharDot),
+				LeaderChar: new(stypes.CustLeadCharDot),
 			},
 		},
 		{
@@ -134,8 +133,8 @@ func TestTabs_MarshalXML(t *testing.T) {
 			name: "Tabs with Multiple Tab elements",
 			tabs: Tabs{
 				Tab: []Tab{
-					{Val: stypes.CustTabStopCenter, Position: 100, LeaderChar: internal.ToPtr(stypes.CustLeadCharDot)},
-					{Val: stypes.CustTabStopLeft, Position: 200, LeaderChar: internal.ToPtr(stypes.CustLeadCharHyphen)},
+					{Val: stypes.CustTabStopCenter, Position: 100, LeaderChar: new(stypes.CustLeadCharDot)},
+					{Val: stypes.CustTabStopLeft, Position: 200, LeaderChar: new(stypes.CustLeadCharHyphen)},
 				},
 			},
 			expected: `<w:tabs><w:tab w:val="center" w:pos="100" w:leader="dot"></w:tab><w:tab w:val="left" w:pos="200" w:leader="hyphen"></w:tab></w:tabs>`,
@@ -175,8 +174,8 @@ func TestTabs_UnmarshalXML(t *testing.T) {
             </tabs>`,
 			expected: Tabs{
 				Tab: []Tab{
-					{Val: stypes.CustTabStopCenter, Position: 100, LeaderChar: internal.ToPtr(stypes.CustLeadCharDot)},
-					{Val: stypes.CustTabStopLeft, Position: 200, LeaderChar: internal.ToPtr(stypes.CustLeadCharHyphen)},
+					{Val: stypes.CustTabStopCenter, Position: 100, LeaderChar: new(stypes.CustLeadCharDot)},
+					{Val: stypes.CustTabStopLeft, Position: 200, LeaderChar: new(stypes.CustLeadCharHyphen)},
 				},
 			},
 		},
