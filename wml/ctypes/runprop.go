@@ -157,7 +157,7 @@ func (rp RunProperty) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	//2.Run Fonts
 	if rp.Fonts != nil {
 		if err = rp.Fonts.MarshalXML(e, xml.StartElement{}); err != nil {
-			return fmt.Errorf("Fonts: %w", err)
+			return fmt.Errorf("fonts: %w", err)
 		}
 	}
 
@@ -312,7 +312,7 @@ func (rp RunProperty) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 		if err = rp.RightToLeft.MarshalXML(e, xml.StartElement{
 			Name: xml.Name{Local: "w:rtl"},
 		}); err != nil {
-			return fmt.Errorf("error in marshaling run property `%s`: %w", "RightToLeft", err)
+			return fmt.Errorf("marshaling run property `%s`: %w", "RightToLeft", err)
 		}
 	}
 
@@ -321,7 +321,7 @@ func (rp RunProperty) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 		if err = rp.CSFormat.MarshalXML(e, xml.StartElement{
 			Name: xml.Name{Local: "w:cs"},
 		}); err != nil {
-			return fmt.Errorf("error in marshaling run property `%s`: %w", "CSFormat", err)
+			return fmt.Errorf("marshaling run property `%s`: %w", "CSFormat", err)
 		}
 	}
 
@@ -344,7 +344,7 @@ func (rp RunProperty) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	//37.East Asian Typography Settings
 	if rp.EALayout != nil {
 		if err = rp.EALayout.MarshalXML(e, xml.StartElement{}); err != nil {
-			return fmt.Errorf("East Asian Typography Settings: %w", err)
+			return fmt.Errorf("east Asian Typography settings: %w", err)
 		}
 	}
 
@@ -353,7 +353,7 @@ func (rp RunProperty) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 		if err = rp.SpecVanish.MarshalXML(e, xml.StartElement{
 			Name: xml.Name{Local: "w:specVanish"},
 		}); err != nil {
-			return fmt.Errorf("error in marshaling run property `%s`: %w", "specVanish", err)
+			return fmt.Errorf("marshaling run property `%s`: %w", "specVanish", err)
 		}
 	}
 
@@ -362,7 +362,7 @@ func (rp RunProperty) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 		if err = rp.OMath.MarshalXML(e, xml.StartElement{
 			Name: xml.Name{Local: "w:oMath"},
 		}); err != nil {
-			return fmt.Errorf("error in marshaling run property `%s`: %w", "oMath", err)
+			return fmt.Errorf("marshaling run property `%s`: %w", "oMath", err)
 		}
 	}
 

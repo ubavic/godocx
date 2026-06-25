@@ -275,7 +275,7 @@ func compareTableWidth(a, b *TableWidth) error {
 		return nil
 	}
 	if a == nil || b == nil {
-		return errors.New("TableWidth mismatch")
+		return errors.New("tableWidth mismatch")
 	}
 
 	if err := internal.ComparePtr("TableWidth", a.Width, b.Width); err != nil {
@@ -294,7 +294,7 @@ func compareTableRowHeight(a, b *TableRowHeight) error {
 		return nil
 	}
 	if a == nil || b == nil {
-		return errors.New("TableRowHeight mismatch")
+		return errors.New("tableRowHeight mismatch")
 	}
 	if err := internal.ComparePtr("TableRowHeight Value", a.Val, b.Val); err != nil {
 		return err

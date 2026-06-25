@@ -34,7 +34,7 @@ func WrapFromStr(value string) (Wrap, error) {
 	case "none":
 		return WrapNone, nil
 	default:
-		return "", errors.New("Invalid Wrap value")
+		return "", errors.New("invalid Wrap value")
 	}
 }
 

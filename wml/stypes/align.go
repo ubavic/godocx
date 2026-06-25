@@ -31,7 +31,7 @@ func XAlignFromStr(value string) (XAlign, error) {
 	case "outside":
 		return XAlignOutside, nil
 	default:
-		return "", errors.New("Invalid XAlign value")
+		return "", errors.New("invalid XAlign value")
 	}
 }
 
@@ -74,7 +74,7 @@ func YAlignFromStr(value string) (YAlign, error) {
 	case "outside":
 		return YAlignOutside, nil
 	default:
-		return "", errors.New("Invalid YAlign value")
+		return "", errors.New("invalid YAlign value")
 	}
 }
 

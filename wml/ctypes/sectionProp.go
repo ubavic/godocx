@@ -87,7 +87,7 @@ func (s SectionProp) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	}
 
 	if s.TextDir != nil {
-		if s.TextDir.MarshalXML(e, xml.StartElement{
+		if err = s.TextDir.MarshalXML(e, xml.StartElement{
 			Name: xml.Name{Local: "w:textDirection"},
 		}); err != nil {
 			return err
@@ -95,7 +95,7 @@ func (s SectionProp) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	}
 
 	if s.DocGrid != nil {
-		if s.DocGrid.MarshalXML(e, xml.StartElement{}); err != nil {
+		if err = s.DocGrid.MarshalXML(e, xml.StartElement{}); err != nil {
 			return err
 		}
 	}

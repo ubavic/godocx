@@ -26,7 +26,7 @@ func TableWidthFromStr(value string) (TableWidth, error) {
 	case "nil":
 		return TableWidthNil, nil
 	default:
-		return "", errors.New("Invalid TableWidth value")
+		return "", errors.New("invalid TableWidth value")
 	}
 }
 

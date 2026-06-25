@@ -32,10 +32,8 @@ func TestMarshal(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	err = types.AddExtension("png", contentType)
-	if err != nil {
-		t.Errorf("Expected no error but got %v", err)
-	}
+
+	types.AddExtension("png", contentType)
 	types.AddOverride("/customXml/item2.xml", "application/vnd.openxmlformats-officedocument.customXmlProperties+xml")
 
 	xmlData, err := xml.Marshal(types)
@@ -108,10 +106,8 @@ func TestAddExtension(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	err = types.AddExtension("png", mime)
-	if err != nil {
-		t.Errorf("Expected no error but got %v", err)
-	}
+
+	types.AddExtension("png", mime)
 
 	expected := ContentTypes{
 		Default: []Default{

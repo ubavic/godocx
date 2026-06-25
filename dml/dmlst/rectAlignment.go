@@ -41,7 +41,7 @@ func RectAlignmentFromStr(value string) (RectAlignment, error) {
 	case "br":
 		return RectAlignmentBottomRight, nil
 	default:
-		return "", errors.New("Invalid RectAlignment value")
+		return "", errors.New("invalid RectAlignment value")
 	}
 }
 

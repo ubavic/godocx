@@ -126,22 +126,22 @@ func (a Anchor) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 
 	// 2. PositionH
 	if err := a.PositionH.MarshalXML(e, xml.StartElement{}); err != nil {
-		return fmt.Errorf("PositionH: %v", err)
+		return fmt.Errorf("marshal positionH: %v", err)
 	}
 
 	// 3. PositionH
 	if err := a.PositionV.MarshalXML(e, xml.StartElement{}); err != nil {
-		return fmt.Errorf("PositionV: %v", err)
+		return fmt.Errorf("marshal positionV: %v", err)
 	}
 
 	// 4. Extent
 	if err := a.Extent.MarshalXML(e, xml.StartElement{Name: xml.Name{Local: "wp:extent"}}); err != nil {
-		return fmt.Errorf("Extent: %v", err)
+		return fmt.Errorf("marshal extent: %v", err)
 	}
 
 	// 5. EffectExtent
 	if err := a.EffectExtent.MarshalXML(e, xml.StartElement{}); err != nil {
-		return fmt.Errorf("EffectExtent: %v", err)
+		return fmt.Errorf("marshal effectExtent: %v", err)
 	}
 
 	// 6. Wrap Choice

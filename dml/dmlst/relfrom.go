@@ -51,7 +51,7 @@ func RelFromHFromStr(value string) (RelFromH, error) {
 	case "rightMargin":
 		return RelFromHRightMargin, nil
 	default:
-		return "", errors.New("Invalid RelFromH value")
+		return "", errors.New("invalid RelFromH value")
 	}
 }
 
@@ -85,7 +85,7 @@ func RelFromVFromStr(value string) (RelFromV, error) {
 	case "topMargin":
 		return RelFromVTopMargin, nil
 	default:
-		return "", errors.New("Invalid RelFromV value")
+		return "", errors.New("invalid RelFromV value")
 	}
 }
 

@@ -98,7 +98,7 @@ func TestLsdException_UnmarshalXML(t *testing.T) {
 
 func compareLsdExFields(a, b LsdException) error {
 	if a.Name != b.Name {
-		return errors.New("Name mismatch")
+		return errors.New("name mismatch")
 	}
 	if err := internal.ComparePtr("Locked", a.Locked, b.Locked); err != nil {
 		return err

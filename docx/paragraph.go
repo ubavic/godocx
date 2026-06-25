@@ -236,12 +236,12 @@ func (p *Paragraph) AddRun() *Run {
 //   - error: An error if the style information is not found.
 func (p *Paragraph) GetStyle() (*ctypes.Style, error) {
 	if p.ct.Property == nil || p.ct.Property.Style == nil {
-		return nil, errors.New("No property for the style")
+		return nil, errors.New("no property for the style")
 	}
 
 	style := p.root.GetStyleByID(p.ct.Property.Style.Val, stypes.StyleTypeParagraph)
 	if style == nil {
-		return nil, errors.New("No style found for the paragraph")
+		return nil, errors.New("no style found for the paragraph")
 	}
 
 	return style, nil
@@ -332,16 +332,9 @@ func (p *Paragraph) AddPicture(path string, width units.Inch, height units.Inch)
 		return nil, err
 	}
 
-	err = p.root.ContentType.AddExtension(imgExtStripDot, imgMIME)
-	if err != nil {
-		return nil, err
-	}
-
+	p.root.ContentType.AddExtension(imgExtStripDot, imgMIME)
 	overridePart := fmt.Sprintf("/%s%s", constants.MediaPath, fileName)
-	err = p.root.ContentType.AddOverride(overridePart, imgMIME)
-	if err != nil {
-		return nil, err
-	}
+	p.root.ContentType.AddOverride(overridePart, imgMIME)
 
 	p.root.FileMap.Store(fileIdxPath, imgBytes)
 

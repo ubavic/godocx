@@ -21,7 +21,7 @@ func TableLayoutFromStr(val string) (TableLayout, error) {
 	case "autofit":
 		return TableLayoutAutoFit, nil
 	default:
-		return TableLayoutInvalid, errors.New("Invalid Table Layout Type")
+		return TableLayoutInvalid, errors.New("invalid Table Layout Type")
 	}
 }
 

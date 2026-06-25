@@ -37,7 +37,7 @@ func CustTabStopFromStr(val string) (CustTabStop, error) {
 	case "num":
 		return CustTabStopNum, nil
 	default:
-		return CustTabStopInvalid, errors.New("Invalid CustTabStop value")
+		return CustTabStopInvalid, errors.New("invalid CustTabStop value")
 	}
 }
 

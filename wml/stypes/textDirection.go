@@ -31,7 +31,7 @@ func TextDirectionFromStr(value string) (TextDirection, error) {
 	case "tbLrV":
 		return TextDirectionTbLrV, nil
 	default:
-		return "", errors.New("Invalid Text Direction")
+		return "", errors.New("invalid Text Direction")
 	}
 }
 

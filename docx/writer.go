@@ -135,7 +135,7 @@ func (rd *RootDoc) Save() error {
 // SaveTo method saves the RootDoc to the specified file path.
 func (rd *RootDoc) SaveTo(fileName string) error {
 	if fileName == "" {
-		return errors.New("Destination file path is empty")
+		return errors.New("destination file path is empty")
 	}
 
 	file, err := os.OpenFile(filepath.Clean(fileName), os.O_WRONLY|os.O_TRUNC|os.O_CREATE, os.ModePerm)

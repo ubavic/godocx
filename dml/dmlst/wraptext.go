@@ -28,7 +28,7 @@ func WrapTextFromStr(value string) (WrapText, error) {
 	case "largest":
 		return WrapTextLargest, nil
 	default:
-		return "", errors.New("Invalid WrapText value")
+		return "", errors.New("invalid WrapText value")
 	}
 }
 

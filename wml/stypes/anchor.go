@@ -25,7 +25,7 @@ func AnchorFromStr(value string) (Anchor, error) {
 	case "page":
 		return AnchorPage, nil
 	default:
-		return "", errors.New("Invalid Anchor value")
+		return "", errors.New("invalid Anchor value")
 	}
 }
 

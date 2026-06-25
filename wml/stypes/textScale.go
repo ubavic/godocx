@@ -10,7 +10,7 @@ type TextScale uint16
 
 func TextScaleFromUint16(u uint16) (TextScale, error) {
 	if u > 600 {
-		return 0, errors.New("Invalid Text Scale")
+		return 0, errors.New("invalid Text Scale")
 	}
 
 	return TextScale(u), nil

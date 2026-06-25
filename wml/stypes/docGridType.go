@@ -26,7 +26,7 @@ func DocGridTypeFromStr(value string) (DocGridType, error) {
 	case "snapToChars":
 		return DocGridSnapToChars, nil
 	default:
-		return "", errors.New("Invalid Docgrid Type")
+		return "", errors.New("invalid Docgrid Type")
 
 	}
 }

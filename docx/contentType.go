@@ -25,10 +25,10 @@ type Override struct {
 	ContentType string `xml:"ContentType,attr"`
 }
 
-func (c *ContentTypes) AddExtension(extension, contentType string) error {
+func (c *ContentTypes) AddExtension(extension, contentType string) {
 	for _, d := range c.Default {
 		if d.Extension == extension {
-			return nil
+			return
 		}
 	}
 
@@ -36,14 +36,12 @@ func (c *ContentTypes) AddExtension(extension, contentType string) error {
 		Extension:   extension,
 		ContentType: contentType,
 	})
-
-	return nil
 }
 
-func (c *ContentTypes) AddOverride(partName, contentType string) error {
+func (c *ContentTypes) AddOverride(partName, contentType string) {
 	for _, o := range c.Override {
 		if o.PartName == partName {
-			return nil
+			return
 		}
 	}
 
@@ -51,7 +49,6 @@ func (c *ContentTypes) AddOverride(partName, contentType string) error {
 		PartName:    partName,
 		ContentType: contentType,
 	})
-	return nil
 }
 
 func MIMEFromExt(extension string) (string, error) {

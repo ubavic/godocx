@@ -19,7 +19,7 @@ func PageOrientFromStr(value string) (PageOrient, error) {
 	case "landscape":
 		return PageOrientLandscape, nil
 	default:
-		return "", errors.New("Invalid Orient Input")
+		return "", errors.New("invalid Orient Input")
 	}
 }
 

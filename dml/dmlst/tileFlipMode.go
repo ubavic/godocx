@@ -29,7 +29,7 @@ func TileFlipModeFromStr(value string) (TileFlipMode, error) {
 	case "xy":
 		return TileFlipModeBoth, nil
 	default:
-		return "", errors.New("Invalid TileFlipMode value")
+		return "", errors.New("invalid TileFlipMode value")
 	}
 }
 

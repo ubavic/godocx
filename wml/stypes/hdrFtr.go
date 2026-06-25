@@ -23,7 +23,7 @@ func HdrFtrFromStr(value string) (HdrFtrType, error) {
 	case "first":
 		return HdrFtrFirst, nil
 	default:
-		return "", errors.New("Invalid Header or Footer Type")
+		return "", errors.New("invalid Header or Footer Type")
 
 	}
 }

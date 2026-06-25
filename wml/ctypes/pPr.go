@@ -202,13 +202,13 @@ func (pp ParagraphProp) MarshalXML(e *xml.Encoder, start xml.StartElement) (err 
 		if err = pp.Shading.MarshalXML(e, xml.StartElement{
 			Name: xml.Name{Local: "w:shd"},
 		}); err != nil {
-			return fmt.Errorf("Shading: %w", err)
+			return fmt.Errorf("shading: %w", err)
 		}
 	}
 
 	// 11. Tabs
 	if err = pp.Tabs.MarshalXML(e, xml.StartElement{}); err != nil {
-		return fmt.Errorf("Tabs: %w", err)
+		return fmt.Errorf("tabs: %w", err)
 	}
 
 	bElems2 := []binElems{
@@ -231,21 +231,21 @@ func (pp ParagraphProp) MarshalXML(e *xml.Encoder, start xml.StartElement) (err 
 		if err = entry.elem.MarshalXML(e, xml.StartElement{
 			Name: xml.Name{Local: entry.XMLName},
 		}); err != nil {
-			return fmt.Errorf("error in marshaling paragraph property `%s`: %w", entry.XMLName, err)
+			return fmt.Errorf("marshaling paragraph property `%s`: %w", entry.XMLName, err)
 		}
 	}
 
 	// 22. Spacing
 	if pp.Spacing != nil {
 		if err = pp.Spacing.MarshalXML(e, xml.StartElement{}); err != nil {
-			return fmt.Errorf("Spacing: %w", err)
+			return fmt.Errorf("spacing: %w", err)
 		}
 	}
 
 	// 23. Indent
 	if pp.Indent != nil {
 		if err = pp.Indent.MarshalXML(e, xml.StartElement{}); err != nil {
-			return fmt.Errorf("Indent: %w", err)
+			return fmt.Errorf("indent: %w", err)
 		}
 	}
 
@@ -262,7 +262,7 @@ func (pp ParagraphProp) MarshalXML(e *xml.Encoder, start xml.StartElement) (err 
 		if err = entry.elem.MarshalXML(e, xml.StartElement{
 			Name: xml.Name{Local: entry.XMLName},
 		}); err != nil {
-			return fmt.Errorf("error in marshaling paragraph property `%s`: %w", entry.XMLName, err)
+			return fmt.Errorf("marshaling paragraph property `%s`: %w", entry.XMLName, err)
 		}
 	}
 
@@ -271,7 +271,7 @@ func (pp ParagraphProp) MarshalXML(e *xml.Encoder, start xml.StartElement) (err 
 		if err = pp.Justification.MarshalXML(e, xml.StartElement{
 			Name: xml.Name{Local: "w:jc"},
 		}); err != nil {
-			return fmt.Errorf("Justification: %w", err)
+			return fmt.Errorf("justification: %w", err)
 		}
 	}
 
@@ -280,7 +280,7 @@ func (pp ParagraphProp) MarshalXML(e *xml.Encoder, start xml.StartElement) (err 
 		if err = pp.TextDirection.MarshalXML(e, xml.StartElement{
 			Name: xml.Name{Local: "w:textDirection"},
 		}); err != nil {
-			return fmt.Errorf("TextDirection: %w", err)
+			return fmt.Errorf("textDirection: %w", err)
 		}
 	}
 
@@ -289,7 +289,7 @@ func (pp ParagraphProp) MarshalXML(e *xml.Encoder, start xml.StartElement) (err 
 		if err = pp.TextAlignment.MarshalXML(e, xml.StartElement{
 			Name: xml.Name{Local: "w:textAlignment"},
 		}); err != nil {
-			return fmt.Errorf("TextAlignment: %w", err)
+			return fmt.Errorf("textAlignment: %w", err)
 		}
 	}
 
@@ -298,7 +298,7 @@ func (pp ParagraphProp) MarshalXML(e *xml.Encoder, start xml.StartElement) (err 
 		if err = pp.TextboxTightWrap.MarshalXML(e, xml.StartElement{
 			Name: xml.Name{Local: "w:textboxTightWrap"},
 		}); err != nil {
-			return fmt.Errorf("TextboxTightWrap: %w", err)
+			return fmt.Errorf("textboxTightWrap: %w", err)
 		}
 	}
 
@@ -307,7 +307,7 @@ func (pp ParagraphProp) MarshalXML(e *xml.Encoder, start xml.StartElement) (err 
 		if err = pp.OutlineLvl.MarshalXML(e, xml.StartElement{
 			Name: xml.Name{Local: "w:outlineLvl"},
 		}); err != nil {
-			return fmt.Errorf("OutlineLvl: %w", err)
+			return fmt.Errorf("outlineLvl: %w", err)
 		}
 	}
 
@@ -316,7 +316,7 @@ func (pp ParagraphProp) MarshalXML(e *xml.Encoder, start xml.StartElement) (err 
 		if err = pp.DivID.MarshalXML(e, xml.StartElement{
 			Name: xml.Name{Local: "w:divId"},
 		}); err != nil {
-			return fmt.Errorf("DivID: %w", err)
+			return fmt.Errorf("divID: %w", err)
 		}
 	}
 
@@ -325,7 +325,7 @@ func (pp ParagraphProp) MarshalXML(e *xml.Encoder, start xml.StartElement) (err 
 		if err = pp.CnfStyle.MarshalXML(e, xml.StartElement{
 			Name: xml.Name{Local: "w:cnfStyle"},
 		}); err != nil {
-			return fmt.Errorf("CnfStyle: %w", err)
+			return fmt.Errorf("cnfStyle: %w", err)
 		}
 	}
 
@@ -333,7 +333,7 @@ func (pp ParagraphProp) MarshalXML(e *xml.Encoder, start xml.StartElement) (err 
 	if pp.RunProperty != nil {
 		propsElement := xml.StartElement{Name: xml.Name{Local: "w:rPr"}}
 		if err = e.EncodeElement(pp.RunProperty, propsElement); err != nil {
-			return err
+			return fmt.Errorf("encoding element: %w", err)
 		}
 	}
 
@@ -341,7 +341,7 @@ func (pp ParagraphProp) MarshalXML(e *xml.Encoder, start xml.StartElement) (err 
 		if err = pp.SectPr.MarshalXML(e, xml.StartElement{
 			Name: xml.Name{Local: "w:sectPr"},
 		}); err != nil {
-			return fmt.Errorf("PPrChange: %w", err)
+			return fmt.Errorf("sectPr: %w", err)
 		}
 	}
 
@@ -350,7 +350,7 @@ func (pp ParagraphProp) MarshalXML(e *xml.Encoder, start xml.StartElement) (err 
 		if err = pp.PPrChange.MarshalXML(e, xml.StartElement{
 			Name: xml.Name{Local: "w:pPrChange"},
 		}); err != nil {
-			return fmt.Errorf("PPrChange: %w", err)
+			return fmt.Errorf("pPrChange: %w", err)
 		}
 	}
 

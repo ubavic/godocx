@@ -194,7 +194,7 @@ func NumFmtFromStr(value string) (NumFmt, error) {
 	case "thaiCounting":
 		return NumFmtThaiCounting, nil
 	default:
-		return "", errors.New("Invalid Numbering Format")
+		return "", errors.New("invalid Numbering Format")
 	}
 }
 

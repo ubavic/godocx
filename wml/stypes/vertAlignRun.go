@@ -23,7 +23,7 @@ func VerticalAlignRunFromStr(value string) (VerticalAlignRun, error) {
 	case "subscript":
 		return VerticalAlignRunSubscript, nil
 	default:
-		return "", errors.New("Invalid VerticalAlignRun Type")
+		return "", errors.New("invalid VerticalAlignRun Type")
 	}
 }
 

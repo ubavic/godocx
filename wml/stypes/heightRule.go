@@ -25,7 +25,7 @@ func HeightRuleFromStr(value string) (HeightRule, error) {
 	case "atLeast":
 		return HeightRuleAtLeast, nil
 	default:
-		return "", errors.New("Invalid HeightRule value")
+		return "", errors.New("invalid HeightRule value")
 	}
 }
 

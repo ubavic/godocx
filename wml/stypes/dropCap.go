@@ -24,7 +24,7 @@ func DropCapFromStr(value string) (DropCap, error) {
 	case "margin":
 		return DropCapMargin, nil
 	default:
-		return "", errors.New("Invalid DropCap value")
+		return "", errors.New("invalid DropCap value")
 	}
 }
 

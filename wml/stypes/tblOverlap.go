@@ -19,7 +19,7 @@ func TblOverlapFromStr(value string) (TblOverlap, error) {
 	case "overlap":
 		return TblOverlapOverlap, nil
 	default:
-		return "", errors.New("Invalid TblOverlap value")
+		return "", errors.New("invalid TblOverlap value")
 	}
 }
 

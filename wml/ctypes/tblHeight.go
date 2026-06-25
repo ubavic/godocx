@@ -64,6 +64,6 @@ func HeightRuleFromStr(value string) (stypes.HeightRule, error) {
 	case "atLeast":
 		return stypes.HeightRuleAtLeast, nil
 	default:
-		return "", errors.New("Invalid HeightRule value")
+		return "", errors.New("invalid HeightRule value")
 	}
 }

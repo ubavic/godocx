@@ -28,7 +28,7 @@ func TextboxTightWrapFromStr(value string) (TextboxTightWrap, error) {
 	case "lastLineOnly":
 		return TextboxTightWrapLastLineOnly, nil
 	default:
-		return "", errors.New("Invalid Textbox Tight Wrap value")
+		return "", errors.New("invalid Textbox Tight Wrap value")
 	}
 }
 

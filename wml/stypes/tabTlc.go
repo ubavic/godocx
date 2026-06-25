@@ -33,7 +33,7 @@ func CustLeadCharFromStr(val string) (CustLeadChar, error) {
 	case "middleDot":
 		return CustLeadCharMiddleDot, nil
 	default:
-		return CustLeadCharInvalid, errors.New("Invalid Lead Char")
+		return CustLeadCharInvalid, errors.New("invalid Lead Char")
 	}
 }
 

@@ -28,7 +28,7 @@ func SectionMarkFromStr(value string) (SectionMark, error) {
 	case "oddPage":
 		return SectionMarkOddPage, nil
 	default:
-		return "", errors.New("Invalid Section Mark")
+		return "", errors.New("invalid Section Mark")
 	}
 }
 

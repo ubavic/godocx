@@ -28,7 +28,7 @@ func TextAlignFromStr(value string) (TextAlign, error) {
 	case "auto":
 		return TextAlignAuto, nil
 	default:
-		return "", errors.New("Invalid Text Alignment")
+		return "", errors.New("invalid Text Alignment")
 	}
 }
 

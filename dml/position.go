@@ -20,7 +20,7 @@ type PoistionV struct {
 func (p PoistionH) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 
 	if p.RelativeFrom == "" {
-		return errors.New("Invalid RelativeFrom in PoistionH")
+		return errors.New("invalid RelativeFrom in PoistionH")
 	}
 
 	start.Name.Local = "wp:positionH"
@@ -42,7 +42,7 @@ func (p PoistionH) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 
 func (p PoistionV) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	if p.RelativeFrom == "" {
-		return errors.New("Invalid RelativeFrom in PoistionV")
+		return errors.New("invalid RelativeFrom in PoistionV")
 	}
 
 	start.Name.Local = "wp:positionV"

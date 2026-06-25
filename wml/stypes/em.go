@@ -29,7 +29,7 @@ func EmFromStr(value string) (Em, error) {
 	case "underDot":
 		return EmUnderDot, nil
 	default:
-		return "", errors.New("Invalid Em value")
+		return "", errors.New("invalid Em value")
 	}
 }
 
