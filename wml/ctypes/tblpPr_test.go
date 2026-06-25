@@ -123,10 +123,10 @@ func compareFloatPos(expected, result FloatPos) error {
 	compareUint64Ptr := func(fieldName string, a, b *uint64) error {
 		if a == nil || b == nil {
 			if a != b {
-				return fmt.Errorf("%s: expected %v but got %v", fieldName, internal.FormatPtr(a), internal.FormatPtr(b))
+				return fmt.Errorf("%s: expected %#v but got %#v", fieldName, a, b)
 			}
 		} else if *a != *b {
-			return fmt.Errorf("%s: expected %v but got %v", fieldName, *a, *b)
+			return fmt.Errorf("%s: expected %#v but got %#v", fieldName, a, b)
 		}
 		return nil
 	}
@@ -134,10 +134,10 @@ func compareFloatPos(expected, result FloatPos) error {
 	compareIntPtr := func(fieldName string, a, b *int) error {
 		if a == nil || b == nil {
 			if a != b {
-				return fmt.Errorf("%s: expected %v but got %v", fieldName, internal.FormatPtr(a), internal.FormatPtr(b))
+				return fmt.Errorf("%s: expected %#v but got %#v", fieldName, a, b)
 			}
 		} else if *a != *b {
-			return fmt.Errorf("%s: expected %v but got %v", fieldName, *a, *b)
+			return fmt.Errorf("%s: expected %#v but got %#v", fieldName, a, b)
 		}
 		return nil
 	}
