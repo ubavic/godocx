@@ -109,22 +109,6 @@ func TestPicUnmarshalXML(t *testing.T) {
 	checkNotNil("PicShapeProp", pic.PicShapeProp)
 }
 
-// Source - https://stackoverflow.com/a/28818489
-// Posted by icza, modified by community. See post 'Timeline' for change history
-// Retrieved 2025-12-18, License - CC BY-SA 3.0
-
-func newBool(bb bool) *bool {
-	b := true
-	if !bb {
-		b = false
-	}
-	return &b
-}
-
-func newUint(num uint64) *uint64 {
-	return &num
-}
-
 func TestPicV2MarshalXML(t *testing.T) {
 	p := &Pic{
 		NonVisualPicProp: NonVisualPicProp{
@@ -152,9 +136,9 @@ func TestPicV2MarshalXML(t *testing.T) {
 		},
 		PicShapeProp: PicShapeProp{
 			TransformGroup: &TransformGroup{
-				Rotation: newUint(90000),
-				FlipH:    newBool(true),
-				FlipV:    newBool(false),
+				Rotation: new(uint64(90000)),
+				FlipH:    new(true),
+				FlipV:    new(false),
 				Offset: &Offset{
 					X: 0,
 					Y: 0,

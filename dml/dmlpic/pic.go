@@ -86,8 +86,8 @@ func (p Pic) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 
 type TransformGroup struct {
 	Rotation *uint64        `xml:"rot,attr,omitempty"`
-	FlipH    *bool          `xml:"flipH, attr, omitempty"`
-	FlipV    *bool          `xml:"flipV, attr, omitempty"`
+	FlipH    *bool          `xml:"flipH,attr,omitempty"`
+	FlipV    *bool          `xml:"flipV,attr,omitempty"`
 	Extent   *dmlct.PSize2D `xml:"ext,omitempty"`
 	Offset   *Offset        `xml:"off,omitempty"`
 }
@@ -95,10 +95,11 @@ type TransformGroup struct {
 type TFGroupOption func(*TransformGroup)
 
 func NewTransformGroup(options ...TFGroupOption) *TransformGroup {
-	tf := &TransformGroup{}
-	*tf.Rotation = 0
-	*tf.FlipH = false
-	*tf.FlipV = false
+	tf := &TransformGroup{
+		Rotation: new(uint64(0)),
+		FlipH:    new(false),
+		FlipV:    new(false),
+	}
 
 	for _, opt := range options {
 		opt(tf)
