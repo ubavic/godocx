@@ -75,7 +75,7 @@ func TestTextUnmarshalXML(t *testing.T) {
 			}
 
 			if err := internal.ComparePtr("space", tc.expected.Space, result.Space); err != nil {
-				t.Errorf(err.Error())
+				t.Error("Got error", err)
 			}
 		})
 	}
