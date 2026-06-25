@@ -1,12 +1,8 @@
 # Godocx
 
-Godocx is a library written in pure Go providing a set of functions that allow you to write to and read from Docx file. This library needs Go version 1.24 or later
+Godocx is a library written in pure Go providing a set of functions that allow you to write to and read from Docx file. This library needs Go version 1.26 or later.
 
-This library is a fork of unmaintened ![gomutex/godocx](https://github.com/gomutex/godocx)
-
-## Usage
-
-Here's a simple example of how you can use Godocx to create and modify DOCX documents:
+This library is a fork of unmaintained ![gomutex/godocx](https://github.com/gomutex/godocx)
 
 ## Installation
 
@@ -14,11 +10,7 @@ Here's a simple example of how you can use Godocx to create and modify DOCX docu
 go get github.com/ubavic/godocx
 ```
 
-### Examples
-
-Explore additional examples and use cases over at GitHub repository dedicated to showcasing the capabilities of Golang Docx:
-https://github.com/ubavic/godocx-examples
-
+## Example
 
 ```go
 package main
@@ -70,10 +62,6 @@ func main() {
 	}
 }
 ```
-
-## Demo Output
-
-This is screenshot of demo document generated from the godocx library. 
 
 ![Screenshot of the demo output](https://github.com/ubavic/godocx-examples/raw/main/demo.png)
 
