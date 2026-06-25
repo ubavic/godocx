@@ -13,7 +13,7 @@ import (
 // The style is set to Heading {level}.
 // if level is outside the range 0-9, error will be returned
 func (rd *RootDoc) AddHeading(text string, level uint) (*Paragraph, error) {
-	if level < 0 || level > 9 {
+	if level > 9 {
 		return nil, errors.New("Heading level not supported")
 	}
 
